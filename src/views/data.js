@@ -9,7 +9,7 @@ export let btns = [
     text:'会议日程',
     img:'../../static/icon/date.png',
     show:true,
-    path:''
+    path:'/date'
   },
   {
     text:'图文直播',
@@ -33,7 +33,7 @@ export let btns = [
     text:'景区导览',
     img:'../../static/icon/dh.png',
     show:true,
-    path:''
+    path:'/dh'
   },
   {
     text:'留言板',

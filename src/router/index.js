@@ -7,6 +7,10 @@ const Map = resolve => require(['../views/Map'], resolve);
 
 const Signin = resolve => require(['../views/Signin'], resolve);
 
+const Date = resolve => require(['../views/Date'], resolve);
+
+const Dh = resolve => require(['../views/Dh'], resolve);
+
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +30,16 @@ export default new Router({
       path: '/signin',
       name: 'Signin',
       component: Signin
+    },
+    {
+      path: '/date',
+      name: 'Date',
+      component: Date
+    },
+    {
+      path: '/dh',
+      name: 'Dh',
+      component: Dh
     },
     
   ]

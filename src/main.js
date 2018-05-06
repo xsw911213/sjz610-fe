@@ -8,6 +8,14 @@ import axios from 'axios'
 
 import host from '../config/host'
 
+import 'swiper/dist/css/swiper.css'
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
+
+
 Vue.prototype.axios = axios
 Vue.prototype.host = host
 
