@@ -15,7 +15,7 @@ export let btns = [
     text:'图文直播',
     img:'../../static/icon/liveing.png',
     show:true,
-    path:''
+    path:'/living'
   },
   {
     text:'旅游交易会',
@@ -39,7 +39,7 @@ export let btns = [
     text:'留言板',
     img:'../../static/icon/msg.png',
     show:true,
-    path:''
+    path:'/msg'
   },
   {
     text:'名片夹',
@@ -51,7 +51,7 @@ export let btns = [
     text:'个人中心',
     img:'../../static/icon/pc.png',
     show:true,
-    path:''
+    path:'individualcenter'
   }
 ]
   

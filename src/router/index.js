@@ -11,6 +11,12 @@ const Date = resolve => require(['../views/Date'], resolve);
 
 const Dh = resolve => require(['../views/Dh'], resolve);
 
+const IndividualCenter = resolve => require(['../views/IndividualCenter'], resolve);
+
+const Msg = resolve => require(['../views/Msg'], resolve);
+
+const Living = resolve => require(['../views/Living'], resolve);
+
 Vue.use(Router)
 
 export default new Router({
@@ -41,6 +47,20 @@ export default new Router({
       name: 'Dh',
       component: Dh
     },
-    
+    {
+      path: '/individualcenter',
+      name: 'IndividualCenter',
+      component: IndividualCenter
+    },
+    {
+      path: '/msg',
+      name: 'Msg',
+      component: Msg
+    },
+    {
+      path: '/living',
+      name: 'Living',
+      component: Living
+    }
   ]
 })

@@ -4,7 +4,7 @@
       <img class="index-head" src="../assets/index-head.png">
       <div style="text-align:center">
         <div class="btns">
-          <a v-for="(item,index) in btns" :key="index" v-if="item.show" @click="go(item.path)">
+          <a v-for="(item,index) in btns" :key="index" v-if="index === 8 ? singined && item.show: item.show" @click="go(item.path)">
             <img :src="item.img">
             <span>{{item.text}}</span>
           </a>
@@ -29,12 +29,12 @@ export default {
       text:'index',
       btns,
       slide: true,
-      loaddivshow:true,
+      loaddivshow: true,
+      singined: true
     }
   },
   methods:{
     go(path){
-      console.log(path)
       this.$router.push({path})
     },
     loadingAnimate(){
@@ -95,7 +95,7 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.9);
     
     p{
       color: #fff;

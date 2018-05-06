@@ -18,11 +18,12 @@ export default {
   position: relative;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 html,body{
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,.7);
+  background-color: #fff;
 }
 
 #app {
@@ -49,7 +50,7 @@ html,body{
 .slide-fade-enter, .slide-fade-leave-to
 {
   left:0;right: 0;
-  transform: translateX(15px);
+  transform: translateX(10px);
   opacity: 0;
 }
 </style>
