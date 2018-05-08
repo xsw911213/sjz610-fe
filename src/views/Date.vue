@@ -90,12 +90,12 @@ export default {
             title:'石家庄市创建全域旅游示范市工作推进会',
             text:'石家庄市鹿泉智慧城市广场'
           },
-          {
-            time:'10：00—11：00',
-            timeColor:'blue',
-            title:'石家庄市创建全域旅游示范市工作推进会',
-            text:'石家庄市鹿泉智慧城市广场'
-          },
+          // {
+          //   time:'10：00—11：00',
+          //   timeColor:'blue',
+          //   title:'石家庄市创建全域旅游示范市工作推进会',
+          //   text:'石家庄市鹿泉智慧城市广场'
+          // },
           {
             time:'全天',
             timeColor:'blue',
