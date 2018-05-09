@@ -15,12 +15,12 @@
     <div :class="`loading ${slide ? '' :'loading-hide'}`" v-show="loaddivshow">
       <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
       <p>都市桃花源，活力新鹿泉</p> 
+      <p class="name">2018 石家庄市旅游产业发展大会</p>
     </div>
   </div>
 </template>
 <script>
-import {btns} from "./data"
-
+import {btns} from "./data";
 
 export default {
   name:'index',
@@ -58,7 +58,7 @@ export default {
       _this.slide = false;
       _this.loaddivshow = false;
     }else{
-      _this.loadingAnimate();
+       _this.loadingAnimate();
     }
     
     _this.axios({
@@ -95,19 +95,29 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
-    background-color: rgba(0,0,0,.9);
+    background-color: rgba(#befbfc,.9);
     
     p{
-      color: #fff;
+      color: #2c3e50;
       text-align: center;
       margin-top: 50px;
+      font-size: 18px;
 
       &.css11b4cd01ba1caf0{
+        font-size: 30px;
+        margin-top: 220px;
         background: linear-gradient(to bottom, #0871b9, #168f42);
         -webkit-background-clip: text;
         color: transparent;
-        font-size: 30px;
-        margin-top: 200px;
+        //color: #2c3e50;
+      }
+
+      &.name{
+        position: absolute;
+        width: 100%;
+        text-align: center;        
+        font-size: 12px;
+        bottom: 35px;
       }
     }
   }
