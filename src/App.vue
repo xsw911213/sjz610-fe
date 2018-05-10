@@ -24,7 +24,8 @@ html,body{
   width: 100%;
   height: 100%;
   /* background-color: #befbfc; */
-  background-color: rgb(184, 184, 184);
+  /* background-color: rgb(184, 184, 184); */
+  background-color: #fff;
 }
 
 #app {

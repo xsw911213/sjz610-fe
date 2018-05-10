@@ -14,9 +14,10 @@
     </div>
 
     <div :class="`loading ${slide ? '' :'loading-hide'}`" v-show="loaddivshow">
-      <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
+      <!-- <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
       <p>都市桃花源，活力新鹿泉</p> 
-      <p class="name">2018 石家庄市旅游产业发展大会</p>
+      <p class="name">2018 石家庄市旅游产业发展大会</p> -->
+      <img class="logo" src="../assets/logo.png" alt="">
     </div>
   </div>
 </template>
@@ -55,6 +56,7 @@ export default {
   mounted(){
     let _this = this;
     let loaded = sessionStorage.getItem('loaded');
+
     if(loaded){
       _this.slide = false;
       _this.loaddivshow = false;
@@ -97,6 +99,16 @@ export default {
     height: 100%;
     top: 0;
     background-color: #befbfc;
+
+    .logo{
+      position: absolute;
+      width: 200px;
+      margin: auto;
+      top: 0;
+      bottom: 80px;
+      left: 0;
+      right: 0;
+    }
     
     p{
       color: #2c3e50;
