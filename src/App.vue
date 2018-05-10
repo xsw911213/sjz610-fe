@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <transition name="slide-fade">
-    <!-- <transition> -->
+    <!-- <transition name="slide-fade"> -->
+    <transition>
       <router-view/>
     </transition>
   </div>
@@ -23,7 +23,8 @@ export default {
 html,body{
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  /* background-color: #befbfc; */
+  background-color: rgb(184, 184, 184);
 }
 
 #app {
@@ -49,8 +50,9 @@ html,body{
 }
 .slide-fade-enter, .slide-fade-leave-to
 {
-  left:0;right: 0;
+  left:0;
+  right: 0;
   transform: translateX(10px);
-  opacity: 0;
+  opacity: 0.5;
 }
 </style>

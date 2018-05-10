@@ -1,6 +1,7 @@
 <template>
   <div id="index">
-    <div :class="`container ${!slide ? 'container-show' :''}`"  >
+    <!-- <div :class="`container ${!slide ? 'container-show' :''}`"  > -->
+    <div class="container"  >
       <img class="index-head" src="../assets/index-head.png">
       <div style="text-align:center">
         <div class="btns">
@@ -95,7 +96,7 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
-    background-color: rgba(#befbfc,.9);
+    background-color: #befbfc;
     
     p{
       color: #2c3e50;
@@ -124,7 +125,7 @@ export default {
   
 
   .container{
-    opacity: 0;
+    // opacity: 0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -180,8 +181,9 @@ export default {
     opacity: 0;
   }
 }
+
 .loading-hide{
-  animation:loadinghide 2s 1;
+  animation:loadinghide 1.5s 1;
   animation-fill-mode: both;
 }
 
