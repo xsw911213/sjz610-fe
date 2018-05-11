@@ -20,6 +20,7 @@ export default {
       if(e.path === '/'){
         this.goBackShow = false;
       }else{
+        this.backGround = false;
         this.goBackShow = true;
         if(e.path === '/map'){
           this.backGround = true;
@@ -36,6 +37,7 @@ export default {
   methods:{
     goBack(){
       this.$router.go(-1);
+      
     }
   }
 }

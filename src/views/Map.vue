@@ -59,6 +59,10 @@
             });
 
             driving.search(new BMap.Point(r.point.lng,r.point.lat), eposi);
+            let body = document.getElementsByTagName('body')[0];
+            let iframe = document.getElementsByTagName('iframe')[0];
+            console.log(body)
+            body.removeChild(iframe);
 
             _this.addressListShow = false;
           }
@@ -73,6 +77,7 @@
     },
     mounted() {
       this.initBaiDuMap(this.point.xbcq);
+      
     }
   };
 </script>

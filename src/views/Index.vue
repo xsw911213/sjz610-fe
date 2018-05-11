@@ -17,7 +17,7 @@
       <!-- <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
       <p>都市桃花源，活力新鹿泉</p> 
       <p class="name">2018 石家庄市旅游产业发展大会</p> -->
-      <img class="logo" src="http://img.huashenghaoche.com/tms/test/logo.png" alt="">
+      <img class="logo" src="http://img.huashenghaoche.com/tms/test/logo.png" @click="e" alt="">
       <!-- <img class="logo-text" src="../assets/logo-text.png" alt=""> -->
       <!-- <p class="cn">第二届石家庄市旅游产业发展大会</p>
       <p class="en">The Second Conference of Shijiazhuang Tourism Industry Development</p> -->
@@ -39,6 +39,9 @@ export default {
     }
   },
   methods:{
+    e(e){
+      e.preventDefault();
+    },
     go(path){
       this.$router.push({path})
     },
