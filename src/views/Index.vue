@@ -17,7 +17,9 @@
       <!-- <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
       <p>都市桃花源，活力新鹿泉</p> 
       <p class="name">2018 石家庄市旅游产业发展大会</p> -->
-      <img class="logo" src="../assets/logo.png" alt="">
+      <img class="logo" src="../assets/logo.svg" alt="">
+      <p class="cn">第二届石家庄市旅游产业发展大会</p>
+      <p class="en">The Second Shijiazhuang City Tourism Industry Development Conference</p>
     </div>
   </div>
 </template>
@@ -102,37 +104,56 @@ export default {
 
     .logo{
       position: absolute;
-      width: 200px;
+      width: 180px;
       margin: auto;
       top: 0;
-      bottom: 80px;
+      bottom: 180px;
       left: 0;
       right: 0;
     }
-    
-    p{
-      color: #2c3e50;
+    .cn{
+      position: absolute; 
+      top: calc(50% + 50px);  
+      width: 100%;
       text-align: center;
-      margin-top: 50px;
-      font-size: 18px;
-
-      &.css11b4cd01ba1caf0{
-        font-size: 30px;
-        margin-top: 220px;
-        background: linear-gradient(to bottom, #0871b9, #168f42);
-        -webkit-background-clip: text;
-        color: transparent;
-        //color: #2c3e50;
-      }
-
-      &.name{
-        position: absolute;
-        width: 100%;
-        text-align: center;        
-        font-size: 12px;
-        bottom: 35px;
-      }
+      font-size: 24px;
+      letter-spacing: 1.5px;
+      font-weight: 900;
+      color: #000;
     }
+
+    .en{
+      position: absolute;
+      top: calc(50% + 80px);
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #000;
+    }
+    
+    // p{
+    //   color: #2c3e50;
+    //   text-align: center;
+    //   margin-top: 50px;
+    //   font-size: 18px;
+
+    //   &.css11b4cd01ba1caf0{
+    //     font-size: 30px;
+    //     margin-top: 220px;
+    //     background: linear-gradient(to bottom, #0871b9, #168f42);
+    //     -webkit-background-clip: text;
+    //     color: transparent;
+    //     //color: #2c3e50;
+    //   }
+
+    //   &.name{
+    //     position: absolute;
+    //     width: 100%;
+    //     text-align: center;        
+    //     font-size: 12px;
+    //     bottom: 35px;
+    //   }
+    // }
   }
   
 

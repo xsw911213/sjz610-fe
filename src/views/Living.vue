@@ -35,6 +35,11 @@ export default {
       // livingMsg:[],
       list0609:[
         {
+          time: '10：00',
+          text: '第五届石家庄旅游交易会开幕式',
+          value: 5
+        },
+        {
           time: '14：00',
           text: '2018中国（石家庄）“互联网+旅游”特色小镇峰会',
           value: 0
