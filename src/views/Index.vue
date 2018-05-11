@@ -18,8 +18,9 @@
       <p>都市桃花源，活力新鹿泉</p> 
       <p class="name">2018 石家庄市旅游产业发展大会</p> -->
       <img class="logo" src="../assets/logo.svg" alt="">
+      <!-- <img class="logo-text" src="../assets/logo-text.png" alt=""> -->
       <p class="cn">第二届石家庄市旅游产业发展大会</p>
-      <p class="en">The Second Shijiazhuang City Tourism Industry Development Conference</p>
+      <p class="en">The Second Conference of Shijiazhuang Tourism Industry Development</p>
     </div>
   </div>
 </template>
@@ -89,6 +90,12 @@ export default {
 </script>
 
 <style lang="scss">
+@font-face {  
+    font-family: 'self-font';  
+    src:url('../../static/font/self-font.ttf') format('truetype');  
+    font-weight: normal;  
+    font-style: normal;  
+} 
 #index{
   position: absolute;
   width: 100%;
@@ -111,23 +118,36 @@ export default {
       left: 0;
       right: 0;
     }
+
+    // .logo-text{
+    //   position: absolute;
+    //   width: 90vw;
+    //   margin: auto;
+    //   top: 140px;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    // }
+
     .cn{
       position: absolute; 
-      top: calc(50% + 50px);  
+      top: calc(50% + 60px);  
       width: 100%;
       text-align: center;
       font-size: 24px;
       letter-spacing: 1.5px;
-      font-weight: 900;
+      // font-weight: 900;
+      font-family: 'self-font';
       color: #000;
     }
 
     .en{
       position: absolute;
-      top: calc(50% + 80px);
+      top: calc(50% + 90px);
       width: 100%;
       text-align: center;
-      font-size: 12px;
+      font-size: 9px;
+      font-family: 'self-font';
       color: #000;
     }
     
