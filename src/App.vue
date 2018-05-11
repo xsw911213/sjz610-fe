@@ -4,7 +4,7 @@
     <transition>
       <router-view/>
     </transition>
-    <a class="goback" v-show="goBackShow" @click="goBack">
+    <a class="goback" :class="{bbg:backGround}" v-show="goBackShow" @click="goBack">
       <img src="../static/icon/goback1.png" ><span>返回</span>
     </a>
     
@@ -21,12 +21,16 @@ export default {
         this.goBackShow = false;
       }else{
         this.goBackShow = true;
+        if(e.path === '/map'){
+          this.backGround = true;
+        }
       }
     }
   },
   data(){
     return{
-      goBackShow:false
+      goBackShow : false,
+      backGround : false,
     }
   },
   methods:{
@@ -53,11 +57,17 @@ html,body{
 }
 
 .goback{
+  box-sizing: border-box;
+  display: block;
   position: fixed;
-  
   z-index: 100;
-  top: 15px;
-  left: 15px;
+  top: 10px;
+  left: 10px;
+  padding: 10px 15px 10px 10px;
+}
+.bbg{
+  border-radius: 3px;
+  background-color: rgba(45, 57, 65, 0.8);
 }
 
 .goback img{

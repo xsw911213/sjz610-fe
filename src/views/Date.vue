@@ -112,9 +112,12 @@ export default {
 <style lang="scss">
 //#2c3e50
 #date{
+  box-sizing: border-box;
   position: absolute;
   width: 100%;
   min-height: 100%;
+  padding-top: 35px;
+
   // background-color: #a7f0f1;
   background: -webkit-linear-gradient(#a7f0f1, #ffffff); /* Safari 5.1 - 6.0 */
   
@@ -131,6 +134,7 @@ export default {
     display: flex;
     box-sizing: border-box;
     padding: 2vw;
+    margin-top: 35px;
     justify-content: space-between;
     background-color: rgba(#a7f0f1,.9);
     //background-color: transparent;
