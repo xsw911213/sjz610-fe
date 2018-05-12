@@ -1,6 +1,7 @@
 <template>
   <div id="index">
-    <div :class="`container ${!slide ? 'container-show' :''}`"  >
+    <!-- <div :class="`container ${!slide ? 'container-show' :''}`"  > -->
+    <div class="container"  >
       <img class="index-head" src="../assets/index-head.png">
       <div style="text-align:center">
         <div class="btns">
@@ -13,14 +14,18 @@
     </div>
 
     <div :class="`loading ${slide ? '' :'loading-hide'}`" v-show="loaddivshow">
-      <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
+      <!-- <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
       <p>都市桃花源，活力新鹿泉</p> 
+      <p class="name">2018 石家庄市旅游产业发展大会</p> -->
+      <img class="logo" src="http://img.huashenghaoche.com/tms/test/logo.png" @click="e" alt="">
+      <!-- <img class="logo-text" src="../assets/logo-text.png" alt=""> -->
+      <!-- <p class="cn">第二届石家庄市旅游产业发展大会</p>
+      <p class="en">The Second Conference of Shijiazhuang Tourism Industry Development</p> -->
     </div>
   </div>
 </template>
 <script>
-import {btns} from "./data"
-
+import {btns} from "./data";
 
 export default {
   name:'index',
@@ -34,6 +39,9 @@ export default {
     }
   },
   methods:{
+    e(e){
+      e.preventDefault();
+    },
     go(path){
       this.$router.push({path})
     },
@@ -54,11 +62,12 @@ export default {
   mounted(){
     let _this = this;
     let loaded = sessionStorage.getItem('loaded');
+
     if(loaded){
       _this.slide = false;
       _this.loaddivshow = false;
     }else{
-      _this.loadingAnimate();
+       _this.loadingAnimate();
     }
     
     _this.axios({
@@ -84,6 +93,12 @@ export default {
 </script>
 
 <style lang="scss">
+// @font-face {  
+//     font-family: 'self-font';  
+//     src:url('../../static/font/self-font.ttf') format('truetype');  
+//     font-weight: normal;  
+//     font-style: normal;  
+// } 
 #index{
   position: absolute;
   width: 100%;
@@ -95,26 +110,78 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
-    background-color: rgba(0,0,0,.9);
-    
-    p{
-      color: #fff;
-      text-align: center;
-      margin-top: 50px;
+    background-color: #fff;
 
-      &.css11b4cd01ba1caf0{
-        background: linear-gradient(to bottom, #0871b9, #168f42);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-size: 30px;
-        margin-top: 200px;
-      }
+    .logo{
+      position: absolute;
+      width: 300px;
+      margin: auto;
+      top: 0;
+      bottom: 180px;
+      left: 0;
+      right: 0;
     }
+
+    .logo-text{
+      position: absolute;
+      width: 90vw;
+      margin: auto;
+      top: 140px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    // .cn{
+    //   position: absolute; 
+    //   top: calc(50% + 60px);  
+    //   width: 100%;
+    //   text-align: center;
+    //   font-size: 24px;
+    //   letter-spacing: 1.5px;
+    //   // font-weight: 900;
+    //   font-family: 'self-font';
+    //   color: #000;
+    // }
+
+    // .en{
+    //   position: absolute;
+    //   top: calc(50% + 90px);
+    //   width: 100%;
+    //   text-align: center;
+    //   font-size: 9px;
+    //   font-family: 'self-font';
+    //   color: #000;
+    // }
+    
+    // p{
+    //   color: #2c3e50;
+    //   text-align: center;
+    //   margin-top: 50px;
+    //   font-size: 18px;
+
+    //   &.css11b4cd01ba1caf0{
+    //     font-size: 30px;
+    //     margin-top: 220px;
+    //     background: linear-gradient(to bottom, #0871b9, #168f42);
+    //     -webkit-background-clip: text;
+    //     color: transparent;
+    //     //color: #2c3e50;
+    //   }
+
+    //   &.name{
+    //     position: absolute;
+    //     width: 100%;
+    //     text-align: center;        
+    //     font-size: 12px;
+    //     bottom: 35px;
+    //   }
+    // }
   }
   
 
   .container{
-    opacity: 0;
+    // opacity: 0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -170,8 +237,9 @@ export default {
     opacity: 0;
   }
 }
+
 .loading-hide{
-  animation:loadinghide 2s 1;
+  animation:loadinghide 1.5s 1;
   animation-fill-mode: both;
 }
 
