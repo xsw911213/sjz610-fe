@@ -62,11 +62,6 @@
         var geolocation = new BMap.Geolocation();
         geolocation.getCurrentPosition(function(r){
 
-          let body = document.getElementsByTagName('body')[0];
-          let iframe = document.getElementsByTagName('iframe')[0];
-          console.log(body)
-          body.removeChild(iframe);
-
           if(this.getStatus() == BMAP_STATUS_SUCCESS){
             // alert('您的位置：'+r.point.lng+','+r.point.lat);
 
@@ -80,12 +75,7 @@
               }
             });
 
-            
-
             driving.search(new BMap.Point(r.point.lng,r.point.lat), eposi);
-
-            
-            
 
             _this.addressListShow = false;
           }

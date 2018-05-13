@@ -82,7 +82,7 @@ export default {
             time:'8：50-9：50',
             timeColor:'blue',
             title:'《全民导游》颁奖典礼。',
-            text:'全市全域旅游推进会地点。'
+            text:'石家庄市鹿泉智慧城市广场。'
           },
           {
             time:'10：00—11：00',
@@ -124,69 +124,73 @@ export default {
 
   .nav-fixed{
     position: fixed;
+    box-sizing: border-box;
     width: 100%;
-    height: 18vw;
     top: 0;
     left: 0;
     z-index: 10;
-  }
-  .nav{
-    display: flex;
-    box-sizing: border-box;
-    padding: 2vw;
-    margin-top: 45px;
-    justify-content: space-between;
-    background-color: rgba(#a7f0f1,.9);
-    //background-color: transparent;
+    //background-color: rgba(#a7f0f1,.9);
+    background-color: #a7f0f1;
 
-    .nav-btn{
-      display: inline-block;
-      width: 30vw;
-      height: 14vw;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 2px 3px 5px #888888;
+    .nav{
+      display: flex;
+      
+      padding: 2vw;
+      margin-top: 45px;
+      justify-content: space-between;
+      // background-color: rgba(#a7f0f1,.9);
+      //background-color: transparent;
 
-      &.active{
-        background-color: #2fbcd6;
-      }
-
-      &::before{
-        content: "";
+      .nav-btn{
         display: inline-block;
-        position: absolute;
-        width: 2px;
-        height: 11vw;
-        top: 1.5vw;
-        left: 13.5vw;
-        background-color: #dde7f2;
-      }
+        width: 30vw;
+        height: 14vw;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 2px 3px 5px #888888;
 
-      img{
-        display: inline-block;
-        position: absolute;
-        width: 11vw;
-        height: 11vw;
-        top: 1.5vw;
-        left: 1.5vw;
-      }
+        &.active{
+          background-color: #2fbcd6;
+        }
 
-      .week{
-        display: inline-block;
-        position: absolute;
-        top: 3vw;
-        left: 15.5vw;
-        font-size: 15px;
-      }
-      .date{
-        display: inline-block;
-        position: absolute;
-        top: calc(4vw + 15px);
-        font-size: 14px;
-        left: 15.5vw;
+        &::before{
+          content: "";
+          display: inline-block;
+          position: absolute;
+          width: 2px;
+          height: 11vw;
+          top: 1.5vw;
+          left: 13.5vw;
+          background-color: #dde7f2;
+        }
+
+        img{
+          display: inline-block;
+          position: absolute;
+          width: 11vw;
+          height: 11vw;
+          top: 1.5vw;
+          left: 1.5vw;
+        }
+
+        .week{
+          display: inline-block;
+          position: absolute;
+          top: 3vw;
+          left: 15.5vw;
+          font-size: 15px;
+        }
+        .date{
+          display: inline-block;
+          position: absolute;
+          top: calc(4vw + 15px);
+          font-size: 14px;
+          left: 15.5vw;
+        }
       }
     }
   }
+  
 
   .detail{
     position: relative;
