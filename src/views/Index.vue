@@ -34,7 +34,7 @@ export default {
       text:'index',
       btns,
       slide: true,
-      loaddivshow: true,
+      loaddivshow: false,
       singined: true
     }
   },
@@ -49,26 +49,26 @@ export default {
       let _this = this;
       // _this.btns[0].show = false;
 
-      setTimeout(()=>{
-        _this.slide = !_this.slide
+      // setTimeout(()=>{
+      //   _this.slide = !_this.slide
 
-        setTimeout(()=>{
-          _this.loaddivshow = !_this.loaddivshow
-          sessionStorage.setItem('loaded', 'true');
-        },2000)
-      },4000)
+      //   setTimeout(()=>{
+      //     _this.loaddivshow = !_this.loaddivshow
+      //     sessionStorage.setItem('loaded', 'true');
+      //   },2000)
+      // },4000)
     }
   },
   mounted(){
     let _this = this;
-    let loaded = sessionStorage.getItem('loaded');
+    //let loaded = sessionStorage.getItem('loaded');
 
-    if(loaded){
-      _this.slide = false;
-      _this.loaddivshow = false;
-    }else{
-       _this.loadingAnimate();
-    }
+    // if(loaded){
+    //   _this.slide = false;
+    //   _this.loaddivshow = false;
+    // }else{
+    //    _this.loadingAnimate();
+    // }
     
     _this.axios({
         method: 'get',

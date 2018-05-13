@@ -16,6 +16,20 @@
       return {
         addressListShow:false,
         point:{
+          // 腾讯
+          //西部长青
+          // xbcq:{
+          //   lan:114.292793,
+          //   lng:114.292793,
+          //   lat:38.025023
+          // },
+          // // 石家庄学院
+          // sjzxy:{
+          //   lan:114.60936,
+          //   lng:114.60936,
+          //   lat:38.026544
+          // }
+          // 百度
           //西部长青
           xbcq:{
             lan:114.301291,
@@ -43,8 +57,16 @@
 
         let eposi = new BMap.Point(point.lan,point.lat);
 
+        
+
         var geolocation = new BMap.Geolocation();
         geolocation.getCurrentPosition(function(r){
+
+          let body = document.getElementsByTagName('body')[0];
+          let iframe = document.getElementsByTagName('iframe')[0];
+          console.log(body)
+          body.removeChild(iframe);
+
           if(this.getStatus() == BMAP_STATUS_SUCCESS){
             // alert('您的位置：'+r.point.lng+','+r.point.lat);
 
@@ -58,11 +80,12 @@
               }
             });
 
+            
+
             driving.search(new BMap.Point(r.point.lng,r.point.lat), eposi);
-            let body = document.getElementsByTagName('body')[0];
-            let iframe = document.getElementsByTagName('iframe')[0];
-            console.log(body)
-            body.removeChild(iframe);
+
+            
+            
 
             _this.addressListShow = false;
           }
@@ -71,12 +94,48 @@
           }        
         });
       },
+      initQQMap(point){
+        let _this = this;
+
+        let geolocation = new qq.maps.Geolocation("GTVBZ-57D3X-KM54N-7M4J5-VOFQ7-64FTJ", "qqmap");
+
+        // 目标位置
+        let epoi = new qq.maps.LatLng(point.lat,point.lng);
+        
+        geolocation.getLocation( ( e =>{
+          console.log(e);
+          //alert(JSON.stringify(e))
+          // 当前位置
+          let spoi = {
+            lat:e.lat,
+            lng:e.lng
+          }
+
+          var map = new qq.maps.Map(document.getElementById("rmap"), {
+            center: epoi,      // 地图的中心地理坐标。
+            zoom:12           
+          })
+        }) )
+
+        function init() {
+            //定义map变量 调用 qq.maps.Map() 构造函数   获取地图显示容器
+            console.log(qq)
+            var map = new qq.maps.Map(document.getElementById("rmap"), {
+                center: new qq.maps.LatLng(39.916527,116.397128),      // 地图的中心地理坐标。
+            });
+        }
+
+        //调用初始化函数地图
+        init();
+      },
       changeMap(prop){
         this.initBaiDuMap(this.point[prop]);
+        //this.initQQMap(this.point[prop]);
       }
     },
     mounted() {
       this.initBaiDuMap(this.point.xbcq);
+      //this.initQQMap(this.point.xbcq)
       
     }
   };
