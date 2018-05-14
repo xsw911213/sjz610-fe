@@ -35,7 +35,7 @@ export default {
       btns,
       slide: true,
       loaddivshow: false,
-      singined: true
+      singined: false
     }
   },
   methods:{
@@ -61,6 +61,11 @@ export default {
   },
   mounted(){
     let _this = this;
+    let localData = JSON.parse(localStorage.getItem('localData'));
+    // console.log(localData);
+    if(localData && localData.signined){
+      this.singined = true;
+    }
     //let loaded = sessionStorage.getItem('loaded');
 
     // if(loaded){
@@ -71,23 +76,23 @@ export default {
     // }
     
     _this.axios({
-        method: 'get',
-        url: '/modules',
-        baseURL: _this.host.baseUrl
-        //baseURL:'http://10.168.34.43:3008/api'
-      }).then((res)=>{
-        // console.log(res);
-        let getbtns = res.data.data.modules;
+      method: 'get',
+      url: '/modules',
+      baseURL: _this.host.baseUrl
+      //baseURL:'http://10.168.34.43:3008/api'
+    }).then((res)=>{
+      // console.log(res);
+      let getbtns = res.data.data.modules;
 
-        btns.forEach((item,index)=>{
-          //console.log(item)
-          getbtns.forEach((ite,inde)=>{
-            if(item.text === ite.name){
-              item.show = ite.show
-            }
-          })
+      btns.forEach((item,index)=>{
+        //console.log(item)
+        getbtns.forEach((ite,inde)=>{
+          if(item.text === ite.name){
+            item.show = ite.show
+          }
         })
       })
+    })
   }
 }
 </script>

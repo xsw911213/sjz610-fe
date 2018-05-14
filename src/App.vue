@@ -16,7 +16,7 @@ export default {
   name: 'App',
   watch:{
     $route(e){
-      console.log(e)
+      // console.log(e)
       if(e.path === '/'){
         this.goBackShow = false;
       }else{

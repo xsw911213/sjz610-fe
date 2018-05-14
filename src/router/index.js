@@ -9,6 +9,8 @@ const Signin = resolve => require(['../views/Signin'], resolve);
 
 const Date = resolve => require(['../views/Date'], resolve);
 
+const pDate = resolve => require(['../views/pDate'], resolve);
+
 const Dh = resolve => require(['../views/Dh'], resolve);
 
 const IndividualCenter = resolve => require(['../views/IndividualCenter'], resolve);
@@ -43,6 +45,11 @@ export default new Router({
       path: '/date',
       name: 'Date',
       component: Date
+    },
+    {
+      path: '/pdate',
+      name: 'pDate',
+      component: pDate
     },
     {
       path: '/dh',

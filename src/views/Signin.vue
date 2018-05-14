@@ -3,7 +3,7 @@
     <div class="head">
       <div v-if="!signed">
         <img src="../../static/icon/signin-icon.png" alt="">
-        <p class="h2">请签到</p>
+        <p class="h2">请完成签到</p>
       </div>
       <div v-else>
         <p class="h1">已签到</p>
@@ -48,20 +48,37 @@ export default {
       }
     },
     netx(){
+      let _this = this;
+
       if(this.nextBtnDisabled){
         return
       }
 
-      if(this.phoneNumber === '13833106527'){
-        this.signed = true;
-      } else {
-        this.errorPormot = "请输入您预留的手机号"
-      }
-
-      
+      _this.axios({
+        method: 'put',
+        url: '/persondata',
+        data:{tel:_this.phoneNumber,signined:true},
+        baseURL: _this.host.baseUrl
+        //baseURL:'http://10.168.34.43:3008/api'
+      }).then((res)=>{
+        console.log(res);
+        let data = res.data;
+        if(data.code){
+          _this.signed = true;
+          localStorage.removeItem('localData');
+          localStorage.setItem('localData', JSON.stringify({tel:_this.phoneNumber,signined:true}));
+        }else{
+          _this.errorPormot = "请输入您预留的手机号"
+        }
+      })      
     }
   },
   mounted(){
+    let localData = JSON.parse(localStorage.getItem('localData'));
+
+    if(localData && localData.signined){
+      this.signed = true;
+    }
     // setTimeout(()=>{
     //   this.errorPormot = "请输入正确的手机号"
     // },3000)

@@ -6,7 +6,7 @@
     </div>
     <div class="entry-list">
       <a @click="$router.push({path:'/date'})">会议日程 <img src="../assets/arrow.png"></a>
-      <a>个人日程 <img src="../assets/arrow.png"></a>
+      <a v-if="signed" @click="goPersonalDate">个人日程 <img src="../assets/arrow.png"></a>
     </div>
   </div>
 </template>
@@ -15,8 +15,38 @@
 export default {
   data () {
     return {
-      nickname:'王局长',
+      nickname: '',
+      signed: false,
+      remark:''
     }
+  },
+  methods:{
+    goPersonalDate(){
+      // console.log(this.remark)
+      this.$router.push({path:'/pdate'})
+    }
+  },
+  mounted(){
+    let _this = this;
+    let localData = JSON.parse(localStorage.getItem('localData'));
+    // console.log(localData);
+    if(localData && localData.signined){
+      _this.signed = true;
+
+      _this.axios({
+        method: 'get',
+        url: '/persondata',
+        params:{tel:localData.tel},
+        baseURL: _this.host.baseUrl
+        //baseURL:'http://10.168.34.43:3008/api'
+      }).then((res)=>{
+        let data = res.data.data[0];
+        console.log(data);
+        _this.nickname = data.name;
+        sessionStorage.setItem('remark', JSON.stringify(data.remark));
+      })
+    }
+    
   }
 }
 </script>
