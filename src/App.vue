@@ -4,9 +4,9 @@
     <transition>
       <router-view/>
     </transition>
-    <a class="goback" :class="{bbg:backGround}" v-show="goBackShow" @click="goBack">
+    <!-- <a class="goback" :class="{bbg:backGround}" v-show="goBackShow" @click="goBack">
       <img src="../static/icon/goback1.png" ><span>返回</span>
-    </a>
+    </a> -->
     
   </div>
 </template>

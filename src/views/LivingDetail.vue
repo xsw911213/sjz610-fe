@@ -1,5 +1,6 @@
 <template>
   <div id="living-detail">
+    <div class="mask"></div>
     <div class="msg">
       <!-- <div class="linear-gradient-bg"></div> -->
       <p class="title">直播大厅</p>
@@ -57,6 +58,14 @@ export default {
   background-image: url('../assets/living-bg.jpg');
   background-repeat: no-repeat;
   background-size: 100% auto;
+
+  .mask{
+    position: absolute;
+    background: linear-gradient(rgba(0,0,0,0), #fff, #fff); /* 标准的语法（必须放在最后） */
+    top: 41.8vw;
+    height: 5vw;
+    width: 100%;
+  }
 
   .msg{
     // b7ebf8

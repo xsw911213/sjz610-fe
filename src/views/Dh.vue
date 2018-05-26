@@ -14,46 +14,21 @@
     </swiper>
 
     <ul class="list">
-      <li>
+      <li v-for="(item,index) in dhData" :key="index">
         <div class="img">
-          <img src="../assets/dh/slider0.jpg" alt="">
+          <img :src="item.img" alt="">
         </div>
         <div class="msg">
-          <p class="title">西柏坡</p>
-          <p class="text">景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区景区</p>
-        </div>
-      </li>
-      <li>
-        <div class="img">
-          <img src="../assets/dh/slider1.jpg" alt="">
-        </div>
-        <div class="msg">
-          <p class="title">抱犊寨</p>
-          <p class="text">景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区景区</p>
-        </div>
-      </li>
-      <li>
-        <div class="img">
-          <img src="../assets/dh/slider2.jpg" alt="">
-        </div>
-        <div class="msg">
-          <p class="title">西柏坡</p>
-          <p class="text">景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区景区</p>
-        </div>
-      </li>
-      <li>
-        <div class="img">
-          <img src="../assets/dh/slider0.jpg" alt="">
-        </div>
-        <div class="msg">
-          <p class="title">西柏坡</p>
-          <p class="text">景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区介绍景区景区</p>
+          <p class="title">{{item.name}}</p>
+          <p class="text">{{item.text}}</p>
         </div>
       </li>
     </ul>
   </div>
 </template>
 <script>
+import dhData from './dhStaticData.js'
+console.log(dhData.length)
 export default {
   data() {
     return {
@@ -64,7 +39,8 @@ export default {
           el: '.swiper-pagination',
           // type: 'progressbar'
         }
-      }
+      },
+      dhData
     }
   }
 }
@@ -95,11 +71,11 @@ export default {
 
     li{
       position: relative;
-      height:24vw;
+      height: 25vw;
       .img{
         position: absolute;
         width: 36vw;
-        height:24vw;
+        height: 25vw;
         top: 0;
         left: 0;
         img{
@@ -125,6 +101,11 @@ export default {
           font-size: 13px;
           color: #717171;
           margin-top: 5px;
+          overflow : hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
         }
       }
     }

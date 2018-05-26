@@ -5,7 +5,8 @@
       <img class="index-head" src="../assets/index-head.png">
       <div style="text-align:center">
         <div class="btns">
-          <a v-for="(item,index) in btns" :key="index" v-if="index === 8 ? singined && item.show: item.show" @click="go(item.path)">
+          <!-- <a v-for="(item,index) in btns" :key="index" v-if="index === 8 ? singined && item.show: item.show" @click="go(item.path)"> -->
+          <a v-for="(item,index) in btns" :key="index" v-if="item.show" @click="go(item.path)">
             <img :src="item.img">
             <span>{{item.text}}</span>
           </a>

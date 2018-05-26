@@ -1,11 +1,15 @@
 <template>
   <div id="individual-center">
-    <div class="head">
+    <div v-if="signed" class="head">
       <p class="nickname">{{nickname}}</p>
       <p class="status">完成签到</p>
     </div>
+    <div v-else class="head">
+      <p class="sigin-promot">请完成签到</p>
+      <a class="go-sigin" @click="$router.push({path:'/signin'})">去签到</a>
+    </div>
     <div class="entry-list">
-      <a @click="$router.push({path:'/date'})">会议日程 <img src="../assets/arrow.png"></a>
+      <!-- <a @click="$router.push({path:'/date'})">会议日程 <img src="../assets/arrow.png"></a> -->
       <a v-if="signed" @click="goPersonalDate">个人日程 <img src="../assets/arrow.png"></a>
     </div>
   </div>
@@ -79,6 +83,27 @@ export default {
       font-size: 20px;
       color: #fff;
       text-align: center;
+    }
+
+    .sigin-promot{
+      position: relative;
+      margin-top: 30px;
+      font-size: 35px;
+      text-align: center;
+      color: #3e3e3e;
+    }
+
+    .go-sigin{
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #459cf4;
+      font-size: 20px;
+      border-radius: 5px;
+      margin-left: 50%;
+      margin-top: 25px;
+      transform: translateX(-50%);
     }
   }
 
