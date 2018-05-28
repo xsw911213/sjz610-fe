@@ -14,9 +14,9 @@
     </swiper>
 
     <ul class="list">
-      <li v-for="(item,index) in dhData" :key="index">
+      <li v-for="(item,index) in dhData" :key="index" @click="go(index)">
         <div class="img">
-          <img :src="item.img" alt="">
+          <img :src="`../../static/dhimg/${index}.jpg`" alt="">
         </div>
         <div class="msg">
           <p class="title">{{item.name}}</p>
@@ -41,6 +41,12 @@ export default {
         }
       },
       dhData
+    }
+  },
+  methods:{
+    go(index){
+      console.log(index);
+      this.$router.push({path:'/dhDetil',query:{id:index}})
     }
   }
 }

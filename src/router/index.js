@@ -13,6 +13,8 @@ const pDate = resolve => require(['../views/pDate'], resolve);
 
 const Dh = resolve => require(['../views/Dh'], resolve);
 
+const dhDetil = resolve => require(['../views/dhDetil'], resolve);
+
 const IndividualCenter = resolve => require(['../views/IndividualCenter'], resolve);
 
 const Msg = resolve => require(['../views/Msg'], resolve);
@@ -55,6 +57,11 @@ export default new Router({
       path: '/dh',
       name: 'Dh',
       component: Dh
+    },
+    {
+      path: '/dhDetil',
+      name: 'dhDetil',
+      component: dhDetil
     },
     {
       path: '/individualcenter',
