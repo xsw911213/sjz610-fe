@@ -12,6 +12,10 @@ import 'swiper/dist/css/swiper.css'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+import VueTouch from 'vue-touch'
+
+Vue.use(VueTouch)
+// console.log(VueTouch)
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 

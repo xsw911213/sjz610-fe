@@ -3,7 +3,11 @@
     <div class="mask"></div>
     <div class="msg">
       <p class="title">会场地图</p>
-      <img class="map" src="../assets/meeting-map.jpg" @click="e" alt="">
+      <v-touch v-on:pinch="scaleimg" v-on:pan="translate" v-on:panend="translateEnd" class="map">
+        <img id="living-map" :style="`width:${width}px;height:${height}px;transform:translate(${translateX}px,${translateY}px)`" src="../assets/meeting-map.jpg" @click="e" alt="">
+      </v-touch>
+      <!-- <img class="map" src="../assets/meeting-map.jpg" @click="e" alt=""> -->
+      
       <p class="title">现场直播</p>
       <div class="meetings">
         <img class="dom" src="../assets/living-dom.png" @click="e" alt="">
@@ -75,6 +79,14 @@ export default {
           value: 4
         },
       ],
+      width:'',
+      _width:'',
+      height:'',
+      _height:'',
+      translateX: 0,
+      otranslateX: 0,
+      translateY: 0,
+      otranslateY: 0
     }
   },
   methods:{
@@ -97,9 +109,72 @@ export default {
     goDetail(value){
       console.log(value);
       this.$router.push({path:'/livingdetail',query:{meeting:value}})
+    },
+    scaleimg(e){
+      //this.direction = e.direction
+      let scale
+      if(e.scale > 1){
+        scale = 1 + e.scale * 0.01;
+      }else if(e.scale === 1){
+        scale = 1;
+      }else{
+        scale = 1 - e.scale * 0.03;
+      }
+      
+      this.width = this.width * scale;
+      this.height = this.height * scale;
+
+      
+      if(this.width < this._width){
+        this.width = this._width;
+        this.height = this._height;
+      }
+      let x = (this.width - this._width) / 2;
+      let y = (this.height - this._height) / 2;
+      this.translateX = 0 - x;
+      this.otranslateX = 0 - x;
+      this.translateY = 0 - y;
+      this.otranslateY = 0 - y;
+      // if(e.scale >=1 ){
+        
+      // }else{
+
+      // }
+      // if(this.scale >= 1){
+      //   this.scale = this.scale + e.scale
+      // }else{
+      //   this.scale = 1;
+      // }
+    },
+    translate(e){
+      let _this = this;
+      console.log(e);
+      let x = e.deltaX;
+      let y = e.deltaY;
+      if(_this.width <= _this._width){
+        x = 0;
+        y = 0;
+      }else{
+        if(_this.translateX !== 0 || _this.translateY !== 0){
+          x = _this.otranslateX + x;
+          y = _this.otranslateY + y;
+        }
+      }
+      console.log(_this.otranslateX,_this.otranslateY,x,y)
+      _this.translateX = x;
+      _this.translateY = y;
+    },
+    translateEnd(){
+      this.otranslateX = this.translateX;
+      this.otranslateY = this.translateY;
     }
   },
   mounted(){
+    let lm = document.getElementById('living-map');
+    this.height = lm.offsetHeight;
+    this.width = lm.offsetWidth;
+    this._height = lm.offsetHeight;
+    this._width = lm.offsetWidth;
     // this.getMsg();
   }
 }
@@ -143,7 +218,15 @@ export default {
 
     .map{
       width: 80vw;
+      height: 107.8vw;
       margin: 5vw 10vw;
+      overflow: auto;
+
+      img{
+        width: 100%;
+        height: 100%;
+        // object-fit: contain;
+      }
     }
 
     .meetings{

@@ -55,7 +55,7 @@ export default {
             time:'9点30分',
             timeColor:'orange',
             title:'第五届石家庄旅游交易会启动仪式及巡馆',
-            text:'鹿泉区智慧城市广场'
+            text:'鹿泉智慧城市广场'
           },
           {
             time:'10点30分',
@@ -182,7 +182,8 @@ export default {
       .nav-btn{
         display: inline-block;
         width: 20vw;
-        height: 10vw;
+        // height: 10vw;
+        padding: 3px 0;
         background-color: #ffffff;
         border-radius: 8px;
         box-shadow: 2px 3px 5px #888888;
@@ -215,20 +216,22 @@ export default {
 
         .week{
           display: inline-block;
-          position: absolute;
+          //position: absolute;
           width: 20vw;
+          height: 17px;
           text-align: center;
-          top: 1vw;
+          // top: 1vw;
           // left: 15.5vw;
           font-size: 15px;
         }
         .date{
           display: inline-block;
-          position: absolute;
+          // position: absolute;
           width: 20vw;
+          height: 17px;
           text-align: center;
-          top: calc(1vw + 20px);
-          font-size: 14px;
+          // top: calc(1vw + 20px);
+          font-size: 13px;
           // left: 15.5vw;
         }
       }
