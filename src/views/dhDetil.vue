@@ -54,6 +54,7 @@ export default {
   }
 
   .text{
+    margin-top: 14px;
     font-size: 14px;
     line-height: 1.5;
   }
