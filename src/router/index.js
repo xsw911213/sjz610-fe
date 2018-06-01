@@ -23,6 +23,10 @@ const Living = resolve => require(['../views/Living'], resolve);
 
 const LivingDetail = resolve => require(['../views/LivingDetail'], resolve);
 
+const TradeMeet = resolve => require(['../views/TradeMeet'], resolve);
+
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -77,6 +81,11 @@ export default new Router({
       path: '/living',
       name: 'Living',
       component: Living
+    },
+    {
+      path:'/trademeet',
+      name: 'TradeMeet',
+      component: TradeMeet
     }
     ,
     {

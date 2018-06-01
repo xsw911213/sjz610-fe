@@ -2,12 +2,6 @@
   <div id="living">
     <div class="mask"></div>
     <div class="msg">
-      <p class="title">会场地图</p>
-      <v-touch v-on:pinch="scaleimg" v-on:pan="translate" v-on:panend="translateEnd" class="map">
-        <img id="living-map" :style="`width:${width}px;height:${height}px;transform:translate(${translateX}px,${translateY}px)`" src="../assets/meeting-map.jpg" @click="e" alt="">
-      </v-touch>
-      <!-- <img class="map" src="../assets/meeting-map.jpg" @click="e" alt=""> -->
-      
       <p class="title">现场直播</p>
       <div class="meetings">
         <img class="dom" src="../assets/living-dom.png" @click="e" alt="">
@@ -30,6 +24,12 @@
           <span class="text" @click="goDetail(item.value)">{{item.text}}</span>  
         </p>
       </div>
+
+      <p class="title" style="margin-top:40px;">会场地图</p>
+      <v-touch v-on:pinch="scaleimg" v-on:pan="translate" v-on:panend="translateEnd" class="map">
+        <img id="living-map" :style="`width:${width}px;height:${height}px;transform:translate(${translateX}px,${translateY}px)`" src="../assets/meeting-map.jpg" @click="e" alt="">
+      </v-touch>
+      <!-- <img class="map" src="../assets/meeting-map.jpg" @click="e" alt=""> --> 
     </div>
   </div>
 </template>

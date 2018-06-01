@@ -21,7 +21,7 @@ export let btns = [
     text:'旅游交易会',
     img:'../../static/icon/meeting.png',
     show:true,
-    path:''
+    path:'/trademeet'
   },
   {
     text:'智慧地图',

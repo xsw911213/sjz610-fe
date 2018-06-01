@@ -20,7 +20,7 @@
         </div>
         <div class="msg">
           <p class="title">{{item.name}}</p>
-          <p class="text">{{item.text}}</p>
+          <p class="text">{{item.text.substr(0,32)}}...</p>
         </div>
       </li>
     </ul>
@@ -78,6 +78,7 @@ export default {
     li{
       position: relative;
       height: 25vw;
+      border-bottom: solid 1px rgb(219, 219, 219);
       .img{
         position: absolute;
         width: 36vw;
@@ -97,8 +98,10 @@ export default {
         top: 0;
         left: 36vw;
         padding: 5px;
+        
 
         .title{
+          margin-top: 10px;
           font-size: 18px;
           color: #333;
         }
@@ -106,12 +109,12 @@ export default {
         .text{
           font-size: 13px;
           color: #717171;
-          margin-top: 5px;
+          margin-top: 15px;
           overflow : hidden;
           text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
+          // display: -webkit-box;
+          // -webkit-line-clamp: 2;
+          // -webkit-box-orient: vertical;
         }
       }
     }
