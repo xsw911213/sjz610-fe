@@ -138,7 +138,7 @@ export default {
             time:'全天',
             timeColor:'blue',
             title:'第五届石家庄旅游交易会',
-            text:'石家庄市鹿泉智慧城市广场'
+            text:'鹿泉智慧城市广场'
           }
         ]
       ]
