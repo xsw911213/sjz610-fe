@@ -25,6 +25,8 @@ const LivingDetail = resolve => require(['../views/LivingDetail'], resolve);
 
 const TradeMeet = resolve => require(['../views/TradeMeet'], resolve);
 
+const CardCase = resolve => require(['../views/cardCase'], resolve);
+
 
 
 Vue.use(Router)
@@ -86,8 +88,12 @@ export default new Router({
       path:'/trademeet',
       name: 'TradeMeet',
       component: TradeMeet
-    }
-    ,
+    },
+    {
+      path:'/cardcase',
+      name: 'CardCase',
+      component: CardCase
+    },
     {
       path: '/livingdetail',
       name: 'LivingDetail',

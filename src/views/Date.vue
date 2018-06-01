@@ -54,14 +54,14 @@ export default {
           {
             time:'9点30分',
             timeColor:'orange',
-            title:'第五届石家庄旅游交易会启动仪式及巡馆',
-            text:'鹿泉智慧城市广场'
+            title:'第五届石家庄旅游交易会重点项目发布暨签约仪式',
+            text:'鹿泉智慧城市广场二楼荣华厅'
           },
           {
             time:'10点30分',
             timeColor:'orange',
             title:'第五届石家庄旅游交易会旅游项目发布、签约',
-            text:'鹿泉智慧城市广场二楼会议厅'
+            text:'鹿泉智慧城市广场二楼荣华厅'
           },
           {
             time:'10点30分',
@@ -82,7 +82,7 @@ export default {
             text:'西部长青·璞祯酒店三楼行云流水多功能厅'
           },
           {
-            time:'18点',
+            time:'18点30分',
             timeColor:'blue',
             title:'推介餐叙会',
             text:'西部长青·璞祯酒店三楼高山流水宴会厅'
@@ -120,7 +120,7 @@ export default {
             time:'9点30分',
             timeColor:'orange',
             title:'石家庄市创建全域旅游示范区工作推进会',
-            text:'鹿泉智慧城市广场二楼会议厅'
+            text:'鹿泉智慧城市广场二楼荣华厅'
           },
           {
             time:'14点30分',

@@ -40,23 +40,23 @@ export default {
       // livingMsg:[],
       list0609:[
         {
-          time: '10：00',
+          time: '10：30',
           text: '第五届石家庄旅游交易会开幕式',
           value: 5
         },
         {
-          time: '14：00',
+          time: '14：30',
           text: '2018中国（石家庄）“互联网+旅游”特色小镇峰会',
           value: 0
         },
         {
-          time:'19：50',
+          time:'20：00',
           text:'第二届石家庄市旅游产业发展大会开幕式',
           value: 1
         },
         {
-          time:'开幕式后',
-          text:'大型实景演出',
+          time:'20：40',
+          text:'大型实景剧《遇见·鹿泉》演出',
           value: 2
         }
       ],
@@ -69,14 +69,14 @@ export default {
       ],
       list0611:[
         {
-          time:'8：00',
-          text:'《全民导游》颁奖典礼',
-          value: 6
-        },
-        {
-          time:'10：00',
+          time:'9：30',
           text:'石家庄市创建全域旅游示范市工作推进会',
           value: 4
+        },
+        {
+          time:'14：30',
+          text:'《全民导游》颁奖典礼',
+          value: 6
         },
       ],
       width:'',

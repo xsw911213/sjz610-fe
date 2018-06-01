@@ -45,13 +45,13 @@ export let btns = [
     text:'名片夹',
     img:'../../static/icon/card.png',
     show:true,
-    path:''
+    path:'/cardcase'
   },
   {
     text:'个人中心',
     img:'../../static/icon/pc.png',
     show:true,
-    path:'individualcenter'
+    path:'/individualcenter'
   }
 ]
   

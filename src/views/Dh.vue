@@ -28,7 +28,7 @@
 </template>
 <script>
 import dhData from './dhStaticData.js'
-console.log(dhData.length)
+// console.log(dhData.length)
 export default {
   data() {
     return {
@@ -109,7 +109,7 @@ export default {
         .text{
           font-size: 13px;
           color: #717171;
-          margin-top: 15px;
+          margin-top: 8px;
           overflow : hidden;
           text-overflow: ellipsis;
           // display: -webkit-box;
