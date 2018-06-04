@@ -12,11 +12,11 @@
           <span class="week">星期一</span>
           <span class="date">6月10日</span>
         </div>
-        <div :class="`nav-btn ${activeNav === 2 ?'active' :''}`"  @click="activeNav = 2">
+        <!-- <div :class="`nav-btn ${activeNav === 2 ?'active' :''}`"  @click="activeNav = 2">
           <img src="../../static/icon/date-icon.png" alt="">
           <span class="week">星期二</span>
           <span class="date">6月11日</span>
-        </div>
+        </div> -->
       </div>
     </div>
     
@@ -59,7 +59,7 @@ export default {
         }else if(obj.time.indexOf('6月11') >= 0){
           this.detail[2].push(obj)
         }
-        console.log(this.detail)
+        // console.log(this.detail)
       }
     });
   }

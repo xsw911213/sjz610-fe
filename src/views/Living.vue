@@ -42,36 +42,36 @@ export default {
         {
           time: '10：30',
           text: '第五届石家庄旅游交易会开幕式',
-          value: 5
+          value: 0
         },
         {
           time: '14：30',
           text: '2018中国（石家庄）“互联网+旅游”特色小镇峰会',
-          value: 0
+          value: 1
         },
         {
           time:'20：00',
           text:'第二届石家庄市旅游产业发展大会开幕式',
-          value: 1
+          value: 2
         },
         {
           time:'20：40',
           text:'大型实景剧《遇见·鹿泉》演出',
-          value: 2
+          value: 3
         }
       ],
       list0610:[
         {
           time:'08：00',
           text:'旅游项目线路观摩',
-          value: 3
+          value: 4
         },
       ],
       list0611:[
         {
           time:'9：30',
           text:'石家庄市创建全域旅游示范市工作推进会',
-          value: 4
+          value: 5
         },
         {
           time:'14：30',

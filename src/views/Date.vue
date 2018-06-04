@@ -54,20 +54,20 @@ export default {
           {
             time:'9点30分',
             timeColor:'orange',
-            title:'第五届石家庄旅游交易会重点项目发布暨签约仪式',
-            text:'鹿泉智慧城市广场二楼荣华厅'
-          },
-          {
-            time:'10点30分',
-            timeColor:'orange',
-            title:'第五届石家庄旅游交易会旅游项目发布、签约',
-            text:'鹿泉智慧城市广场二楼荣华厅'
+            title:'第五届石家庄旅游交易会启动仪式及巡馆',
+            text:'鹿泉智慧城市中心'
           },
           {
             time:'10点30分',
             timeColor:'orange',
             title:'《全民导游》颁奖典礼',
-            text:'鹿泉智慧城市广场'
+            text:'鹿泉智慧城市中心'
+          },
+          {
+            time:'10点50分',
+            timeColor:'orange',
+            title:'第五届石家庄旅游交易会重点项目发布暨签约仪式',
+            text:'鹿泉智慧城市中心二楼荣华厅'
           },
           {
             time:'14点30分',
@@ -120,13 +120,13 @@ export default {
             time:'9点30分',
             timeColor:'orange',
             title:'石家庄市创建全域旅游示范区工作推进会',
-            text:'鹿泉智慧城市广场二楼荣华厅'
+            text:'鹿泉智慧城市中心二楼荣华厅'
           },
           {
             time:'14点30分',
             timeColor:'blue',
             title:'第二届庄里外休闲活动颁奖仪式',
-            text:'鹿泉智慧城市广场'
+            text:'鹿泉智慧城市中心'
           },
           // {
           //   time:'10：00—11：00',
@@ -138,7 +138,7 @@ export default {
             time:'全天',
             timeColor:'blue',
             title:'第五届石家庄旅游交易会',
-            text:'鹿泉智慧城市广场'
+            text:'鹿泉智慧城市中心'
           }
         ]
       ]
