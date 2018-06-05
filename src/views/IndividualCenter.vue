@@ -3,6 +3,7 @@
     <div v-if="signed" class="head">
       <p class="nickname">{{nickname}}</p>
       <p class="status">完成签到</p>
+      <a class="resign" @click="resign">信息有误？重新签到</a>
     </div>
     <div v-else class="head">
       <p class="sigin-promot">请完成签到</p>
@@ -25,6 +26,11 @@ export default {
     }
   },
   methods:{
+    resign(){
+      sessionStorage.clear();
+      localStorage.clear();
+      this.$router.push({path:'/signin'})
+    },
     goPersonalDate(){
       // console.log(this.remark)
       this.$router.push({path:'/pdate'})
@@ -104,6 +110,14 @@ export default {
       margin-left: 50%;
       margin-top: 25px;
       transform: translateX(-50%);
+    }
+
+    .resign{
+      display: block;
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      font-size: 12px;
     }
   }
 
