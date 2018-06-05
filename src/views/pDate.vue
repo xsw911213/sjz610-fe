@@ -29,6 +29,7 @@
         </div>
       </li>
     </ul>
+    线路{{linetype}}
   </div>
 </template>
 <script>
@@ -36,7 +37,8 @@ export default {
   data(){
     return{
       activeNav : 0,
-      detail:[[],[],[]]
+      detail:[[],[],[]],
+      linetype:'a',
     }
   },
   mounted(){
@@ -44,6 +46,8 @@ export default {
     console.log(remark)
     let arr1 = remark.split(';');
     console.log(arr1)
+    this.linetype = arr1[1].split('#')[1]
+    arr1[1] = arr1[1].split('#')[0]
     arr1.forEach((element,index) => {
       if(element){
         let arr = element.split(',');
@@ -91,10 +95,9 @@ export default {
 
     .nav{
       display: flex;
-      
       padding: 2vw;
       margin-top: 45px;
-      justify-content: space-between;
+      justify-content: space-around;
       // background-color: rgba(#a7f0f1,.9);
       //background-color: transparent;
 
