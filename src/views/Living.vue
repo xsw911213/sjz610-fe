@@ -84,7 +84,7 @@ export default {
       list0610:[
         {
           time:'08：00',
-          text:'旅游项目线路观摩',
+          text:'旅游项目观摩',
           value: 8
         },
       ],
