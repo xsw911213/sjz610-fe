@@ -331,6 +331,8 @@ export default {
           width: calc(68vw - 80px);
           margin-left: 5px;
           vertical-align: middle;
+          transform: translateY(2px);
+          // white-space: nowrap;
         }
       }
     }
