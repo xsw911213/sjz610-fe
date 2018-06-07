@@ -23,6 +23,8 @@ export default {
     // let dataPath = 'static/dhdb/' + id
 
     this.textData = require('./dhdb/'+id);
+
+    window.scrollTo(0,0);
     // console.log(data)
 
     //import data from dataPath
