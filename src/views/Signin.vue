@@ -3,21 +3,21 @@
     <div class="head">
       <div v-if="!signed">
         <img src="../../static/icon/signin-icon.png" alt="">
-        <p class="h2">请完成签到</p>
+        <p class="h2">{{h2}}</p>
       </div>
       <div v-else>
-        <p class="h1">已签到</p>
+        <p class="h1">{{h1}}</p>
       </div>
     </div>
     <div class="form">
       <div v-if="!signed">
-        <input v-model="phoneNumber" type="tel" placeholder="请输入手机号" @input="vailablePhone">
+        <input v-model="phoneNumber" type="tel" :placeholder="placeholder" @input="vailablePhone">
         <p class="error">{{errorPormot}}</p>
-        <a :class="`next-btn ${ nextBtnDisabled ? 'disabled':''}`" @click="netx">下一步</a>
+        <a :class="`next-btn ${ nextBtnDisabled ? 'disabled':''}`" @click="netx">{{btnText}}</a>
       </div>
       <div v-else>
         <img class="signined" src="../../static/icon/signed.png" alt="">
-        <p class="signined-text">恭喜您签到成功</p>
+        <p class="signined-text">{{successText}}</p>
       </div>
     </div>
   </div>
@@ -27,10 +27,16 @@ export default {
   name:'signin',
   data() {
     return {
+      h1:'已签到',
+      h2:'请完成签到',
+      placeholder:'请输入手机号',
+      btnText:'下一步',
+      successText:'恭喜您签到成功',
       signed: false,
       errorPormot: '',
       phoneNumber:'',
       nextBtnDisabled: true,
+      english:false
     }
   },
   methods : {
@@ -41,6 +47,9 @@ export default {
       var phone = this.phoneNumber; 
       if (!phoneReg.test(phone)) { 
         this.errorPormot = "请输入有效的手机号码！"
+        if(this.english){
+            this.errorPormot = "Please enter a valid phone number!"
+          }
         this.nextBtnDisabled = true;
       } else {
         this.errorPormot = "";
@@ -69,6 +78,9 @@ export default {
           localStorage.setItem('localData', JSON.stringify({tel:_this.phoneNumber,signined:true}));
         }else{
           _this.errorPormot = "请输入您预留的手机号"
+          if(_this.english){
+            _this.errorPormot = "Please enter your reserved mobile number"
+          }
         }
       })      
     }
@@ -78,6 +90,17 @@ export default {
 
     if(localData && localData.signined){
       this.signed = true;
+    }
+    
+    console.log(this.$route.query.lang)
+    
+    if(this.$route.query.lang === 'en'){
+      this.english = true;
+      this.h1 = 'Checked in';
+      this.h2 = 'Please sign in';
+      this.placeholder = 'Enter phone number';
+      this.btnText = 'Next';
+      this.successText = 'Congratulations';
     }
     // setTimeout(()=>{
     //   this.errorPormot = "请输入正确的手机号"
@@ -134,7 +157,7 @@ export default {
         height: 40px;
         line-height: 40px;
         text-align: center;
-        font-size: 30px;
+        font-size: 24px;
         border: none;
         border-bottom: solid 2px #c4c4c4;
         margin-top: 50px;

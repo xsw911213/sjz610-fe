@@ -2,22 +2,22 @@
   <div id="living">
     <div class="mask"></div>
     <div class="msg">
-      <p class="title">现场直播</p>
+      <p class="title">{{title1}}</p>
       <div class="meetings">
         <img class="dom" src="../assets/living-dom.png" @click="e" alt="">
-        <p class="date">6月9日</p>
+        <p class="date">6-09</p>
         <p class="item" v-for="(item,index) in list0609" :key="index">
           <span class="time">{{item.time}}</span>
           <span class="play"></span>
           <span class="text" @click="goDetail(item.value)">{{item.text}}</span>  
         </p>
-        <p class="date">6月10日</p>
+        <p class="date">6-10</p>
         <p class="item" v-for="(item,index) in list0610" :key="index + 10">
           <span class="time">{{item.time}}</span>
           <span class="play"></span>
           <span class="text" @click="goDetail(item.value)">{{item.text}}</span>  
         </p>
-        <p class="date">6月11日</p>
+        <p class="date">6-11</p>
         <p class="item" v-for="(item,index) in list0611" :key="index + 100">
           <span class="time">{{item.time}}</span>
           <span class="play"></span>
@@ -25,7 +25,7 @@
         </p>
       </div>
 
-      <p class="title" style="margin-top:40px;">会场地图</p>
+      <p class="title" style="margin-top:40px;">{{title2}}</p>
       <v-touch v-on:pinch="scaleimg" v-on:pan="translate" v-on:panend="translateEnd" class="map">
         <img id="living-map" :style="`width:${width}px;height:${height}px;transform:translate(${translateX}px,${translateY}px)`" src="../assets/meeting-map.jpg" @click="e" alt="">
       </v-touch>
@@ -38,6 +38,8 @@ export default {
   data(){
     return{
       // livingMsg:[],
+      title1:'现场直播',
+      title2:'会场地图',
       list0609:[
         {
           time: '9：30',
@@ -107,7 +109,8 @@ export default {
       translateX: 0,
       otranslateX: 0,
       translateY: 0,
-      otranslateY: 0
+      otranslateY: 0,
+      english:false
     }
   },
   methods:{
@@ -196,6 +199,12 @@ export default {
     this.width = lm.offsetWidth;
     this._height = lm.offsetHeight;
     this._width = lm.offsetWidth;
+
+    if(this.$route.query.lang === 'en'){
+      this.english = true;
+      this.title1 = 'Live';
+      this.title2 = 'Conference site map';
+    }
     // this.getMsg();
   }
 }

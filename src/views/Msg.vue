@@ -1,11 +1,12 @@
 <template>
   <div id="msg">
     <img @click="e" class="head" src="../assets/msg.jpg" alt="">
+    <p class="model-name">{{modelName}}</p>
     <div class="form">
-      <input v-model="title" type="text" placeholder="请输入标题(必填)">
-      <textarea v-model="msg" placeholder="内容不少于20字，请尽量叙述清晰，简明扼要。"></textarea>
-      <p><span>{{msg.length}}</span>/1000<span v-if="msg.length < 20" class="gray">(还差{{20 - msg.length}}字)</span></p>
-      <a :class="`submit ${submitDisable ? 'disable' :''}`" @click="submit">提交留言</a>
+      <input v-model="title" type="text" :placeholder="titlePlaceholder">
+      <textarea v-model="msg" :placeholder="textareaPlaceholder"></textarea>
+      <p><span>{{msg.length}}</span>/1000<span v-if="msg.length < 20" class="gray">{{spanText}}</span></p>
+      <a :class="`submit ${submitDisable ? 'disable' :''}`" @click="submit">{{btnText}}</a>
     </div>
   </div>
 </template>
@@ -14,8 +15,13 @@
 export default {
   data (){
     return {
+      modelName:'留言板',
+      titlePlaceholder:'请输入标题(必填)',
+      textareaPlaceholder:'内容不少于20字，请尽量叙述清晰，简明扼要。',
+      btnText:'提交留言',
       title:'',
       msg:'',
+      english:false
     }
   },
   computed:{
@@ -26,6 +32,13 @@ export default {
         return true;
       }
     },
+    spanText(){
+      let text = '(还差'+(20 - this.msg.length)+'字)';
+      if(this.english){
+        text = '(still worse '+(20 - this.msg.length)+' letters)';
+      }
+      return text
+    }
   },
   methods:{
     e(e){
@@ -55,6 +68,15 @@ export default {
   mounted(){
     this.title = '';
     this.msg = '';
+
+    if(this.$route.query.lang === 'en'){
+      this.english = true;
+      this.modelName = 'Message board';
+      this.titlePlaceholder = 'Please enter a title (required)';
+      this.textareaPlaceholder = 'The content is not less than 20 words. Please try to make it clear and concise.';
+      this.btnText = 'Submit';
+      
+    }
   }
   
 }
@@ -66,6 +88,15 @@ export default {
     width: 100%;
     min-height: 100%;
     background-color: #fff;
+
+    .model-name{
+      position: absolute;
+      font-size: 40px;
+      font-weight: 600;
+      top: 30vw;
+      right: 8vw;
+      color: #fff;
+    }
 
     .head{
       position: relative;
