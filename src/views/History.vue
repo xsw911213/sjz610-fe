@@ -32,6 +32,7 @@ export default {
 #history{
   box-sizing: border-box;
   padding: 10px;
+  background-color: #fff;
   .title{
     position: relative;
     font-size: 18px;

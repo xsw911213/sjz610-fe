@@ -25,6 +25,15 @@
         </p>
       </div>
 
+      <p class="title" style="margin-top:40px;">{{title3}}</p>
+      <div class="meetings">
+        <p class="video-address">{{videoText}}</p>
+        <br>
+        <p class="video-address http">http://play.yunxi.tv/livestream/flash?id=d84f8a8280a642d4b599b4659a0593bc</p>
+        <br>
+        <p class="video-address">{{videoText2}}</p>
+      </div>
+
       <p class="title" style="margin-top:40px;">{{title2}}</p>
       <v-touch v-on:pinch="scaleimg" v-on:pan="translate" v-on:panend="translateEnd" class="map">
         <img id="living-map" :style="`width:${width}px;height:${height}px;transform:translate(${translateX}px,${translateY}px)`" src="../assets/meeting-map.jpg" @click="e" alt="">
@@ -40,6 +49,9 @@ export default {
       // livingMsg:[],
       title1:'现场直播',
       title2:'会场地图',
+      title3:'视频直播',
+      videoText:'视频直播地址：',
+      videoText2:'（长按地址，并将其复制到浏览器中进行查看）',
       list0609:[
         {
           time: '9：30',
@@ -204,6 +216,9 @@ export default {
       this.english = true;
       this.title1 = 'Live';
       this.title2 = 'Conference site map';
+      this.title3 = 'Live broadcast';
+      this.videoText = 'Live video address:'
+      this.videoText2 = '(Long press the address and copy it to your browser for viewing)'
     }
     // this.getMsg();
   }
@@ -342,6 +357,15 @@ export default {
           vertical-align: middle;
           transform: translateY(2px);
           // white-space: nowrap;
+        }
+      }
+
+      .video-address{
+        position: relative;
+        font-size: 14px;
+        &.http{
+          color: #2a6cc4;
+          font-size: 13px;
         }
       }
     }
