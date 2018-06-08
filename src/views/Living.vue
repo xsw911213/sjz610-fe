@@ -34,6 +34,9 @@
         <p class="video-address">{{videoText2}}</p>
       </div>
 
+      <p class="title" style="margin-top:40px;">{{title4}}</p>
+      <a class="download" href="../../static/秩序手册.pdf" download="秩序手册.pdf">秩序手册</a>
+
       <p class="title" style="margin-top:40px;">{{title2}}</p>
       <v-touch v-on:pinch="scaleimg" v-on:pan="translate" v-on:panend="translateEnd" class="map">
         <img id="living-map" :style="`width:${width}px;height:${height}px;transform:translate(${translateX}px,${translateY}px)`" src="../assets/meeting-map.jpg" @click="e" alt="">
@@ -50,6 +53,7 @@ export default {
       title1:'现场直播',
       title2:'会场地图',
       title3:'视频直播',
+      title4:'文件下载',
       videoText:'视频直播地址：',
       videoText2:'（长按地址，并将其复制到浏览器中进行查看）',
       list0609:[
@@ -217,6 +221,7 @@ export default {
       this.title1 = 'Live';
       this.title2 = 'Conference site map';
       this.title3 = 'Live broadcast';
+      this.title4 = 'Download Document';
       this.videoText = 'Live video address:'
       this.videoText2 = '(Long press the address and copy it to your browser for viewing)'
     }
@@ -259,6 +264,12 @@ export default {
       color: #fff;
       font-size: 18px;
       background: linear-gradient(to right, #b5eaf7 , #77c9f4 ,#b5eaf7); /* 标准的语法 */
+    }
+
+    .download{
+      display: block;
+      text-align: center;
+      margin-top: 20px;
     }
 
     .map{
