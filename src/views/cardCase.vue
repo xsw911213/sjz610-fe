@@ -135,6 +135,9 @@
           &.part{
             width: 50vw;
             text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
           &.tel{
             width: 30vw;

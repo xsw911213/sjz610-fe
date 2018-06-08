@@ -29,12 +29,11 @@
         </div>
       </li>
     </ul>
-    <div class="line" v-if="activeNav">
+    <!-- <div class="line" v-if="activeNav">
       <p v-for="(item,index) in lines[linetype].split('→')" :key="index">
         {{item}}
       </p>
-      <!-- {{lines[linetype]}} -->
-    </div>
+    </div> -->
     
   </div>
 </template>
