@@ -1,10 +1,9 @@
 <template>
   <div id="trademeet">
-    <img v-for="i in 9" :src="`../../static/tmimg/index/trademeet_0${i}.jpg`" alt="" :key="i">
-    <a class="history history1" @click="$router.push({path:'/history',query:{'history':0}})"></a>
-    <a class="history history2" @click="$router.push({path:'/history',query:{'history':1}})"></a>
-    <a class="history history3" @click="$router.push({path:'/history',query:{'history':2}})"></a>
-    <a class="history history4" @click="$router.push({path:'/history',query:{'history':3}})"></a>
+    <a v-for="i in 4" class="history history1" @click="$router.push({path:'/history',query:{'history':(i-1)}})">
+      <img :src="`../../static/tmimg/index/trademeet${i}.jpg`">
+      <span>第{{i}}界石家庄旅游发展大会（旅游交易会）</span>
+    </a>
   </div>
 </template>
 
@@ -22,39 +21,37 @@ export default {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  background-color: #fff;
-  img{
-    width: 100%;
-    vertical-align: top;
-  }
+  padding-top: 20px;
+  box-sizing: border-box;
+  // background-color: #fff;
+  background-image: url("../assets/index-bg.jpg");
+  background-size: 100% auto;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-color: #77c1ff;
   .history{
     display: block;
-    position: absolute;
-    width: 30vw;
-    height: 30vw;
-    // background-color: rgba(255,0,0,.6);
-    // bottom: 0;
-
-    &.history1{
-      bottom: 32vw;
-      right: 10vw;
+    position: relative;
+    width: 100%;
+    height: 24vw;
+    margin-top: 15px;
+    background-color: rgba(#fff,.7);
+    img{
+      display: block;
+      position: absolute;
+      height: 20vw;
+      top: 2vw;
+      left: 2vw;
     }
-
-    &.history2{
-      bottom: 32vw;
-      left: 10vw;
-    }
-
-    &.history3{
-      bottom: 65vw;
-      right: 10vw;
-    }
-
-    &.history4{
-      bottom: 65vw;
-      left: 10vw;
+    span{
+      display: block;
+      position: absolute;
+      font-size: 14px;
+      left: 30vw;
+      top: 2vw;
     }
   }
+  
 }
 </style>
 

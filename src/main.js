@@ -14,6 +14,10 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 import VueTouch from 'vue-touch'
 
+import VueJsonp from 'vue-jsonp'
+
+Vue.use(VueJsonp)
+
 Vue.use(VueTouch)
 // console.log(VueTouch)
 

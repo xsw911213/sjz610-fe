@@ -12,6 +12,7 @@
     <div class="entry-list">
       <!-- <a @click="$router.push({path:'/date'})">会议日程 <img src="../assets/arrow.png"></a> -->
       <a v-if="signed" @click="goPersonalDate">个人日程 <img src="../assets/arrow.png"></a>
+      <a v-if="signed" @click="$router.push({path:'/image'})">秩序手册 <img src="../assets/arrow.png"></a>
     </div>
   </div>
 </template>

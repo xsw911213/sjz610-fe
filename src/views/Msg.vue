@@ -58,6 +58,9 @@ export default {
           //baseURL:'http://10.168.34.43:3008/api'
         }).then((res)=>{
           console.log(res)
+          this.title = "";
+          this.msg = "";
+          alert('提交成功');
           //  this.livingMsg = res.data.data;
         })
       }else{

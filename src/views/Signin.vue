@@ -2,7 +2,7 @@
   <div id="signin">
     <div class="head">
       <div v-if="!signed">
-        <img src="../../static/icon/signin-icon.png" alt="">
+        <!-- <img src="../../static/icon/signin-icon.png" alt=""> -->
         <p class="h2">{{h2}}</p>
       </div>
       <div v-else>
@@ -16,7 +16,7 @@
         <a :class="`next-btn ${ nextBtnDisabled ? 'disabled':''}`" @click="netx">{{btnText}}</a>
       </div>
       <div v-else>
-        <img class="signined" src="../../static/icon/signed.png" alt="">
+        <!-- <img class="signined" src="../../static/icon/signed.png" alt=""> -->
         <p class="signined-text">{{successText}}</p>
       </div>
     </div>

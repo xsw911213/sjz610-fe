@@ -57,8 +57,7 @@
 
         let eposi = new BMap.Point(point.lan,point.lat);
 
-        
-
+      
         var geolocation = new BMap.Geolocation();
         geolocation.getCurrentPosition(function(r){
 

@@ -4,30 +4,20 @@
       <div class="nav">
         <div :class="`nav-btn ${activeNav === 0 ?'active' :''}`" @click="activeNav = 0">
           <img src="../../static/icon/date-icon.png" alt="">
-          <span class="week">星期五</span>
-          <span class="date">6月8日</span>
+          <span class="week">星期四</span>
+          <span class="date">6月27日</span>
         </div>
         <div :class="`nav-btn ${activeNav === 1 ?'active' :''}`" @click="activeNav = 1">
           <img src="../../static/icon/date-icon.png" alt="">
-          <span class="week">星期六</span>
-          <span class="date">6月9日</span>
-        </div>
-        <div :class="`nav-btn ${activeNav === 2 ?'active' :''}`"  @click="activeNav = 2">
-          <img src="../../static/icon/date-icon.png" alt="">
-          <span class="week">星期日</span>
-          <span class="date">6月10日</span>
-        </div>
-        <div :class="`nav-btn ${activeNav === 3 ?'active' :''}`"  @click="activeNav = 3">
-          <img src="../../static/icon/date-icon.png" alt="">
-          <span class="week">星期一</span>
-          <span class="date">6月11日</span>
+          <span class="week">星期五</span>
+          <span class="date">6月28日</span>
         </div>
       </div>
     </div>
     
     <ul class="detail">
       <li v-for="(item,index) in detail[activeNav]" :key="index">
-        <p class="time">时间 / <span :class="`${item.timeColor}`">{{item.time}}</span></p>
+        <p class="time"><span :class="`${item.timeColor}`">{{item.time}}</span></p>
         <div class="info">
           <p class="title">{{item.title}}</p>
           <p class="text" v-html="item.text"></p>
@@ -38,147 +28,118 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-      activeNav : 1,
-      detail:[
+  data() {
+    return {
+      activeNav: 0,
+      detail: [
         [
           {
-            time:'全天',
-            timeColor:'orange',
-            title:'报到',
-            text:'国源朗怡酒店、众诚假日酒店、翠屏山迎宾馆、西部长青·璞祯酒店、敬业酒店、建研会议服务有限公司、御景园、国山宾馆、鹿泉宾馆、中茂海悦酒店'
+            time: "8:00—12:00",
+            timeColor: "orange",
+            title: "嘉宾报道",
+            text:"各接待酒店"
+          },
+          {
+            time: "9:00",
+            timeColor: "orange",
+            title: "石家庄文化旅游商品展销会",
+            text: "综合文化活动中心一楼大厅"
+          },
+          {
+            time: "9:30",
+            timeColor: "orange",
+            title: "石家庄旅游招商项目发布暨签约仪式",
+            text: "综合文化活动中心"
+          },
+          {
+            time: "9:30",
+            timeColor: "orange",
+            title: "灵寿风光摄影大赛获奖作品展览及颁奖仪式",
+            text: "综合文化活动中心会议室"
+          },
+          {
+            time: "14:30",
+            timeColor: "blue",
+            title: "生态新灵寿·休闲后花园”2019中国（灵寿）旅游经济发展高峰论坛",
+            text: "综合文化活动中心会议室"
+          },
+          {
+            time: "17:30",
+            timeColor: "blue",
+            title: "市领导会见重要嘉宾及外宾",
+            text: "灵寿县悦城大酒店"
+          },
+          {
+            time: "18:00",
+            timeColor: "blue",
+            title: "推介餐叙会",
+            text: "灵寿县悦城大酒店"
+          },
+          {
+            time: "19:30",
+            timeColor: "blue",
+            title: "第四届石家庄市旅游产业发展大会开幕式",
+            text: "综合文化活动中心演艺厅"
+          },
+          {
+            time: "20:00",
+            timeColor: "blue",
+            title: "大型演艺活动",
+            text: "综合文化活动中心演艺厅"
+          },
+          {
+            time: "21:30",
+            timeColor: "blue",
+            title: "游览灵寿松阳河新区夜景灯光秀、水上灯光秀，看音乐喷泉、室外演艺活动“中山雄风”",
+            text: "松阳河新区"
           }
         ],
         [
           {
-            time:'9点30分',
-            timeColor:'orange',
-            title:'第五届石家庄旅游交易会启动仪式及巡馆',
-            text:'鹿泉智慧城市中心'
+            time: "8:00—16:30",
+            timeColor: "orange",
+            title: "旅游项目观摩",
+            text: "一城、两带、三区"
           },
           {
-            time:'10点30分',
-            timeColor:'orange',
-            title:'《全民导游》颁奖典礼',
-            text:'鹿泉智慧城市中心'
-          },
-          {
-            time:'10点50分',
-            timeColor:'orange',
-            title:'第五届石家庄旅游交易会重点项目发布暨签约仪式',
-            text:'鹿泉智慧城市中心二楼荣华厅'
-          },
-          {
-            time:'14点30分',
-            timeColor:'blue',
-            title:'2018中国·石家庄“互联网+旅游”特色小镇峰会',
-            text:'鹿泉区国山宾馆'
-          },
-          {
-            time:'17点30分',
-            timeColor:'blue',
-            title:'市领导会见重要嘉宾及外宾',
-            text:'西部长青·璞祯酒店三楼行云流水多功能厅'
-          },
-          {
-            time:'18点30分',
-            timeColor:'blue',
-            title:'推介餐叙会',
-            text:'西部长青·璞祯酒店三楼高山流水宴会厅'
-          },
-          {
-            time:'20点',
-            timeColor:'blue',
-            title:'第二届石家庄市旅游产业发展大会开幕式',
-            text:'西部长青水上乐园'
-          },
-          {
-            time:'20点40分',
-            timeColor:'blue',
-            title:'大型实景剧《遇见·鹿泉》演出',
-            text:'西部长青水上乐园'
+            time: "17:00",
+            timeColor: "blue",
+            title: "石家庄市承办第四届河北省旅游产业发展大会“冲刺100天”誓师动员大会",
+            text: "锦绣大明川休闲度假康养小镇"
           }
-        ],
-        [
-          {
-            time:'08：00-18：00',
-            timeColor:'blue',
-            title:'旅游项目观摩线路A：',
-            text:'西部长青璞祯酒店<br>西部长青德明古镇<br>新杏苑路<br>山前大道<br>动物园（路过）<br>抱犊寨<br>山前大道<br>鹿泉智慧城市中心<br>山前大道<br>西北外环<br>大年初一风情小镇<br>西北外环<br>环抱北路<br>花田原乡小镇（路过）<br>岸下石窑小镇（路过）<br>环抱西路<br>谷家峪美丽乡村（路过）<br>环抱南路<br>土门关驿道小镇<br>环抱南路<br>山前大道<br>河北国山宾馆午餐<br>北斗路<br>花西街<br>望佛路<br>十里花廊（路过）<br>石柏大街<br>京赞线<br>食草堂艺术园区<br>京赞线<br>金凤路<br>君乐宝奶业小镇<br>金凤路<br>青银辅路<br>石铜路<br>碧水街<br>青龙山大道<br>北国奥特莱斯·水世界<br>碧水街<br>旅游路<br>杰明房车木屋营地<br>旅游路<br>羊角庄路<br>衡井线<br>山前大道<br>紫藤西山庄园（路过）<br>中以农科小镇<br>山前大道<br>南二环西延<br>龙泉寺（路过）<br>西部长青璞祯酒店'
-          },
-          {
-            time:'08：00-18：00',
-            timeColor:'blue',
-            title:'旅游项目观摩线路B：',
-            text:'翠屏山迎宾馆<br>御园路<br>京赞线<br>槐安西路<br>龙泉古镇（路过）<br>山前大道<br>龙泉湖西门（路过）<br>河北长城影视文创园（路过）<br>南二环西延<br>龙泉湖南门（路过）<br>京赞线<br>食草堂艺术园区<br>京赞线<br>金凤路<br>君乐宝奶业小镇<br>金凤路<br>青银辅路<br>石铜路<br>碧水街<br>青龙山大道<br>北国奥特莱斯·水世界<br>碧水街<br>旅游路<br>杰明房车木屋营地<br>旅游路<br>羊角庄路<br>衡井线<br>山前大道<br>紫藤西山庄园（路过）<br>中以农科小镇<br>山前大道<br>南二环西延<br>龙泉寺（路过）<br>西部长青璞祯酒店午餐<br>西部长青柳仙谷停车场<br>西部长青德明古镇<br>新杏苑路<br>山前大道<br>动物园（路过）<br>抱犊寨<br>山前大道<br>鹿泉智慧城市中心<br>山前大道<br>西北外环<br>大年初一风情小镇<br>西北外环<br>环抱北路<br>花田原乡小镇（路过）<br>岸下石窑小镇（路过）<br>环抱西路<br>谷家峪美丽乡村（路过）<br>环抱南路<br>土门关驿道小镇<br>环抱南路<br>山前大道<br>北斗路<br>花西街<br>望佛路<br>十里花廊（路过）<br>石柏大街<br>京赞线<br>御园路<br>翠屏山迎宾馆'
-          },
-          {
-            time:'08：00-18：00',
-            timeColor:'blue',
-            title:'旅游项目观摩线路C：',
-            text:'国源朗怡酒店<br>京赞线<br>食草堂艺术园区（路过）<br>金凤路<br>君乐宝奶业小镇<br>金凤路<br>青银辅路<br>石铜路<br>碧水街<br>青龙山大道<br>北国奥特莱斯·水世界<br>碧水街<br>旅游路<br>杰明房车木屋营地<br>旅游路<br>羊角庄路<br>衡井线<br>山前大道<br>紫藤西山庄园（路过）<br>中以农科小镇<br>山前大道<br>河北长城影视文创园（路过）<br>龙泉湖西门（路过）<br>龙泉古镇（路过）<br>众诚假日酒店午餐<br>山前大道<br>抱犊寨<br>山前大道<br>鹿泉智慧城市中心<br>山前大道<br>环抱北路<br>花田原乡小镇<br>环抱北路<br>岸下石窑小镇（路过）<br>环抱西路<br>谷家峪美丽乡村（路过）<br>环抱南路<br>土门关驿道小镇<br>环抱南路<br>山前大道<br>动物园（路过）<br>新杏苑路<br>西部长青柳仙谷停车场<br>西部长青德明古镇<br>南二环西延<br>龙泉寺（路过）<br>龙泉湖南门（路过）<br>京赞线<br>食草堂艺术园区<br>京赞线<br>国源朗怡酒店'
-          },
-          {
-            time:'08：00-18：00',
-            timeColor:'blue',
-            title:'旅游项目观摩线路D：',
-            text:'众诚假日酒店<br>山前大道<br>抱犊寨<br>山前大道<br>鹿泉智慧城市中心<br>山前大道<br>环抱北路<br>花田原乡小镇（路过）<br>岸下石窑小镇（路过）<br>环抱西路<br>谷家峪美丽乡村（路过）<br>环抱南路<br>土门关驿道小镇<br>环抱南路<br>山前大道<br>动物园（路过）<br>新杏苑路<br>西部长青德明古镇<br>南二环西延<br>龙泉寺（路过）<br>龙泉湖南门（路过）<br>京赞线<br>国源朗怡午餐<br>京赞线<br>食草堂艺术园区<br>京赞线<br>金凤路<br>君乐宝奶业小镇<br>金凤路<br>青银辅路<br>石铜路<br>碧水街<br>青龙山大道<br>北国奥特莱斯·水世界<br>碧水街<br>旅游路<br>杰明房车木屋营地<br>旅游路<br>羊角庄路<br>衡井线<br>山前大道<br>紫藤西山庄园（路过）<br>中以农科小镇<br>山前大道<br>河北长城影视文创园（路过）<br>龙泉湖西门（路过）<br>龙泉古镇<br>山前大道<br>众诚假日酒店'
-          },
-          // ,
-          // {
-          //   time:'全天',
-          //   timeColor:'blue',
-          //   title:'第五届石家庄旅游交易会',
-          //   text:'石家庄市鹿泉智慧城市广场'
-          // }
-        ],
-        [
-          {
-            time:'9点30分',
-            timeColor:'orange',
-            title:'石家庄市创建全域旅游示范区工作推进会',
-            text:'鹿泉智慧城市中心二楼荣华厅'
-          },
-          {
-            time:'14点30分',
-            timeColor:'blue',
-            title:'第二届庄里外休闲活动颁奖仪式',
-            text:'鹿泉智慧城市中心'
-          },
-          // {
-          //   time:'10：00—11：00',
-          //   timeColor:'blue',
-          //   title:'石家庄市创建全域旅游示范市工作推进会',
-          //   text:'石家庄市鹿泉智慧城市广场'
-          // },
-          // {
-          //   time:'全天',
-          //   timeColor:'blue',
-          //   title:'第五届石家庄旅游交易会',
-          //   text:'鹿泉智慧城市中心'
-          // }
         ]
       ]
+    };
+  },
+  methods: {
+    changeABCD(index) {
+      // console.log(this.abcd[index])
+      // console.log(this.detail[2])
+      // this.detail[2][0] = this.abcd[index];
+      this.detail[2].splice(0,1,this.abcd[index])
     }
+  },
+  mounted() {
+    this.changeABCD(0);
   }
-}
+};
 </script>
 
 <style lang="scss">
 //#2c3e50
-#date{
-  box-sizing: border-box;
+#date {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  //padding-top: 45px;
+  box-sizing: border-box;
+  // background-color: #fff;
+  background-image: url("../assets/index-bg.jpg");
+  background-size: 100% auto;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-color: #77c1ff;
 
-  // background-color: #a7f0f1;
-  background: -webkit-linear-gradient(#a7f0f1, #ffffff); /* Safari 5.1 - 6.0 */
-  
-
-  .nav-fixed{
+  .nav-fixed {
     position: fixed;
     box-sizing: border-box;
     width: 100%;
@@ -186,18 +147,18 @@ export default {
     left: 0;
     z-index: 10;
     //background-color: rgba(#a7f0f1,.9);
-    background-color: #a7f0f1;
+    // background-color: #77c1ff;
 
-    .nav{
+    .nav {
       display: flex;
-      
+
       padding: 2vw;
       //margin-top: 45px;
-      justify-content: space-between;
+      justify-content: space-evenly;
       // background-color: rgba(#a7f0f1,.9);
       //background-color: transparent;
 
-      .nav-btn{
+      .nav-btn {
         display: inline-block;
         width: 20vw;
         // height: 10vw;
@@ -206,11 +167,12 @@ export default {
         border-radius: 8px;
         box-shadow: 2px 3px 5px #888888;
 
-        &.active{
-          background-color: #2fbcd6;
+        &.active {
+          background-color: #3e94da;
+          color:rgb(255, 255, 255);
         }
 
-        &::before{
+        &::before {
           content: "";
           //display: inline-block;
           display: none;
@@ -222,7 +184,7 @@ export default {
           background-color: #dde7f2;
         }
 
-        img{
+        img {
           //display: inline-block;
           display: none;
           position: absolute;
@@ -232,7 +194,7 @@ export default {
           left: 1.5vw;
         }
 
-        .week{
+        .week {
           display: inline-block;
           //position: absolute;
           width: 20vw;
@@ -242,7 +204,7 @@ export default {
           // left: 15.5vw;
           font-size: 15px;
         }
-        .date{
+        .date {
           display: inline-block;
           // position: absolute;
           width: 20vw;
@@ -255,34 +217,46 @@ export default {
       }
     }
   }
-  
 
-  .detail{
+  .detail {
     position: relative;
     box-sizing: border-box;
     padding: 10px;
     margin-top: calc(20px + 14vw);
     // background: -webkit-linear-gradient(#a7f0f1, #ffffff); /* Safari 5.1 - 6.0 */
 
-    li{
+    .abcd-nav{
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+      a{
+        display: inline-block;
+        color: #414bd4;
+        // background-color: #fff;
+        // padding: 5px;
+        // border-radius: 3px;
+      }
+    }
+
+    li {
       position: relative;
       margin-bottom: 15px;
 
-      .time{
+      .time {
         font-size: 18px;
         border-bottom: solid 2px #a9dbdd;
         padding: 5px;
 
-        .blue{
+        .blue {
           color: #42a0d5;
         }
 
-        .orange{
-          color: #e5c34d;
+        .orange {
+          color: #c7a011;
         }
       }
 
-      .info{
+      .info {
         box-sizing: border-box;
         position: relative;
         padding: 15px 10px;
@@ -291,12 +265,12 @@ export default {
         border-radius: 5px;
         box-shadow: 2px 3px 5px #888888;
 
-        .title{
+        .title {
           color: #242323;
           font-size: 16px;
         }
 
-        .text{
+        .text {
           color: #3d3c3c;
           font-size: 14px;
           margin-top: 15px;

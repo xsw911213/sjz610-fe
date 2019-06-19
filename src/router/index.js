@@ -29,6 +29,14 @@ const CardCase = resolve => require(['../views/cardCase'], resolve);
 
 const History = resolve => require(['../views/History'], resolve);
 
+const ArticleList = resolve => require(['../views/ArticleList'], resolve);
+
+const ArticleDetial = resolve => require(['../views/ArticleDetial'], resolve);
+
+const Image = resolve => require(['../views/Image'], resolve);
+
+const MeiTuan = resolve => require(['../views/MeiTuan'], resolve);
+
 
 
 Vue.use(Router)
@@ -105,6 +113,27 @@ export default new Router({
       path: '/history',
       name: 'History',
       component: History
+    },
+    {
+      path: '/image/:module',
+      name: 'Image',
+      component: Image
+    },
+    {
+      path: '/articleList/:module',
+      name: 'ArticleList',
+      component: ArticleList
+    },
+    {
+      path: '/articleDetial/:module/:id',
+      name: 'articleDetial',
+      component: ArticleDetial
+    },
+    {
+      path: '/meituan',
+      name: 'meituan',
+      component: MeiTuan
     }
+
   ]
 })

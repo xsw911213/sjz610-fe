@@ -1,103 +1,3 @@
-<template>
-  <div id="index">
-    <!-- <div :class="`container ${!slide ? 'container-show' :''}`"  > -->
-    <div class="container"  >
-      <img class="index-head" src="../assets/index-head.png">
-      <div style="text-align:center">
-        <div class="btns">
-          <!-- <a v-for="(item,index) in btns" :key="index" v-if="index === 8 ? singined && item.show: item.show" @click="go(item.path)"> -->
-          <a v-for="(item,index) in btns" :key="index" v-if="item.show" @click="go(item.path)">
-            <img :src="item.img">
-            <span>{{item.text}}</span>
-          </a>
-        </div> 
-      </div>
-    </div>
-
-    <div :class="`loading ${slide ? '' :'loading-hide'}`" v-show="loaddivshow">
-      <!-- <p class="css11b4cd01ba1caf0">一“鹿”走来，“泉”是风景</p>
-      <p>都市桃花源，活力新鹿泉</p> 
-      <p class="name">2018 石家庄市旅游产业发展大会</p> -->
-      <img class="logo" src="http://img.huashenghaoche.com/tms/test/logo.png" @click="e" alt="">
-      <!-- <img class="logo-text" src="../assets/logo-text.png" alt=""> -->
-      <!-- <p class="cn">第二届石家庄市旅游产业发展大会</p>
-      <p class="en">The Second Conference of Shijiazhuang Tourism Industry Development</p> -->
-    </div>
-  </div>
-</template>
-<script>
-import {btns} from "./data";
-
-export default {
-  name:'index',
-  data() {
-    return {
-      text:'index',
-      btns,
-      slide: true,
-      loaddivshow: false,
-      singined: false
-    }
-  },
-  methods:{
-    e(e){
-      e.preventDefault();
-    },
-    go(path){
-      this.$router.push({path})
-    },
-    loadingAnimate(){
-      let _this = this;
-      // _this.btns[0].show = false;
-
-      // setTimeout(()=>{
-      //   _this.slide = !_this.slide
-
-      //   setTimeout(()=>{
-      //     _this.loaddivshow = !_this.loaddivshow
-      //     sessionStorage.setItem('loaded', 'true');
-      //   },2000)
-      // },4000)
-    }
-  },
-  mounted(){
-    let _this = this;
-    let localData = JSON.parse(localStorage.getItem('localData'));
-    // console.log(localData);
-    if(localData && localData.signined){
-      this.singined = true;
-    }
-    //let loaded = sessionStorage.getItem('loaded');
-
-    // if(loaded){
-    //   _this.slide = false;
-    //   _this.loaddivshow = false;
-    // }else{
-    //    _this.loadingAnimate();
-    // }
-    
-    _this.axios({
-      method: 'get',
-      url: '/modules',
-      baseURL: _this.host.baseUrl
-      //baseURL:'http://10.168.34.43:3008/api'
-    }).then((res)=>{
-      // console.log(res);
-      let getbtns = res.data.data.modules;
-
-      btns.forEach((item,index)=>{
-        //console.log(item)
-        getbtns.forEach((ite,inde)=>{
-          if(item.text === ite.name){
-            item.show = ite.show
-          }
-        })
-      })
-    })
-  }
-}
-</script>
-
 <style lang="scss">
 // @font-face {  
 //     font-family: 'self-font';  
@@ -137,52 +37,6 @@ export default {
       left: 0;
       right: 0;
     }
-
-    // .cn{
-    //   position: absolute; 
-    //   top: calc(50% + 60px);  
-    //   width: 100%;
-    //   text-align: center;
-    //   font-size: 24px;
-    //   letter-spacing: 1.5px;
-    //   // font-weight: 900;
-    //   font-family: 'self-font';
-    //   color: #000;
-    // }
-
-    // .en{
-    //   position: absolute;
-    //   top: calc(50% + 90px);
-    //   width: 100%;
-    //   text-align: center;
-    //   font-size: 9px;
-    //   font-family: 'self-font';
-    //   color: #000;
-    // }
-    
-    // p{
-    //   color: #2c3e50;
-    //   text-align: center;
-    //   margin-top: 50px;
-    //   font-size: 18px;
-
-    //   &.css11b4cd01ba1caf0{
-    //     font-size: 30px;
-    //     margin-top: 220px;
-    //     background: linear-gradient(to bottom, #0871b9, #168f42);
-    //     -webkit-background-clip: text;
-    //     color: transparent;
-    //     //color: #2c3e50;
-    //   }
-
-    //   &.name{
-    //     position: absolute;
-    //     width: 100%;
-    //     text-align: center;        
-    //     font-size: 12px;
-    //     bottom: 35px;
-    //   }
-    // }
   }
   
 
@@ -194,14 +48,103 @@ export default {
     top: 0;
     background-image: url("../assets/index-bg.jpg");
     background-size: 100% auto;
-    background-position: bottom;
+    background-position: top;
     background-repeat: no-repeat;
-    background-color: #29a6fe;
+    background-color: #7AC0F9;
   }
 
   .index-head{
     width: 100%;
   }
+  .local-info{
+    position: relative;
+    padding: 0 10vw;
+    margin-top: -2vw;
+    p{
+      position: relative;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .check-lang{
+      width: 60px;
+      height: 22px;
+      border: solid 2px #fff;
+      text-align: center;
+      border-radius: 6px;
+      a{
+        display: inline-block;
+        position: absolute;
+        width: 30px;
+        height: 22px;
+        left: 0;
+        background-color: rgba(0,0,0,0);
+        color: #fff;
+        &:last-child{
+          left: 30px;
+        }
+
+        &.selected{
+          background-color: #fff;
+          color: #25619c;
+        }
+      }
+    }
+
+    .weather{
+      width: 60px;
+      font-size: 25px;
+      border-bottom: solid 1px #fff;
+    }
+
+    .date{
+      width: 60px;
+      font-size: 18px;
+    }
+
+    .weekday{
+      width: 60px;
+      font-size: 19px;
+      height: 20px;
+    }
+  }
+
+  .modules{
+    position: relative;
+    text-align:center;
+    margin-top: 3vw;
+    .notice{
+      display: block;
+      position: relative;
+      width: 77vw;
+      height: 9vw;
+      line-height: 9vw;
+      color: #fff;
+      margin: 0 auto;
+      border-radius: 4.5vw;
+      background-color: rgba(#2a94f1,.7);
+
+      marquee{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+      }
+    }
+    .hotline{
+      display: block;
+      position: relative;
+      width: 77vw;
+      height: 9vw;
+      line-height: 9vw;
+      color: #fff;
+      margin: 6vw auto 0;
+      border-radius: 8px;
+      background-color: rgba(#2a94f1,.7);
+    }
+  }
+
   .btns{
     display: inline-flex;
     width: 90vw;
@@ -213,22 +156,62 @@ export default {
     a{
       display: block;
       width: 25vw;
-      height: 25vw;
+      height: 20vw;
       text-align: center;
       margin-top: 3vw;
       margin-left: 7.5vw;
+      border-radius: 8px;
+      background-color: rgba(#2a94f1,.7);
       &:nth-child(3n - 2){
         margin-left: 0;
       }
 
       img{
+        margin-top: 3px;
         width: 12vw;
         height: 12vw;
       }
       span{
         display: block;
-        margin-top: 10px;
+        // margin-top: 5px;
         font-size: 14px;
+        color: #fff;
+        height: 14px;
+      }
+    }
+  }
+
+  .bottom-btns{
+    display: inline-flex;
+    width: 90vw;
+    // margin-left: 5vw;
+    margin-top: 2vw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    a{
+      display: block;
+      width: 25vw;
+      height: 13vw;
+      text-align: center;
+      margin-top: 1vw;
+      margin-left: 7.5vw;
+      border-radius: 8px;
+      &:nth-child(3n - 2){
+        margin-left: 0;
+      }
+
+      img{
+        margin-top: 5px;
+        width: 10vw;
+        height: 10vw;
+      }
+      span{
+        display: block;
+        // margin-top: 5px;
+        font-size: 13px;
+        color: #fff;
+        height: 14px;
       }
     }
   }
@@ -264,4 +247,145 @@ export default {
 }
 </style>
 
+<template>
+  <div id="index">
+    <!-- <div :class="`container ${!slide ? 'container-show' :''}`"  > -->
+    <div class="container"  >
+      <img class="index-head" src="../assets/index-head.png">
+      <div class="local-info">
+        <p @click="checkLang" class="check-lang">
+          <a :class="lang ==='cn' ?'selected':''">中</a>
+          <a :class="lang ==='en' ?'selected':''">EN</a>
+        </p>
+        <p class="weather">{{localInfo.temperatureCurr}}℃</p>
+        <p class="date">{{localInfo.date}}</p>
+        <p class="weekday">{{localInfo.week[lang]}}</p>
+      </div>
+      <div class="modules">
+        <a class="notice" @click="$router.push({name:'ArticleList',params:{module:'meetingnotice'}})">
+          <marquee direction="up" scrollamount="2">
+            <p v-for="(item,index) in marqueeList" :key="index">{{item.title}}</p>
+          </marquee>
+        </a>
+        <div class="btns">
+          <!-- <a v-for="(item,index) in btns" :key="index" v-if="index === 8 ? singined && item.show: item.show" @click="go(item.path)"> -->
+          <a v-for="(item,index) in btns" :key="index" v-if="item.show" @click="go(item.path)">
+            <img :src="item.img">
+            <span>{{item.text[lang]}}</span>
+          </a>
+        </div>
+        <a class="hotline">{{hotline[lang]}}：88888888</a>
+        <div class="bottom-btns">
+          <!-- <a>
+            <img src="../../static/icon/b1.png" alt="">
+            <span>逛会展</span>
+          </a> -->
+          <!-- <a>
+            <img src="../../static/icon/b2.png" alt="">
+            <span>吃住行游购娱</span>
+          </a> -->
+          <!-- <a>
+            <img src="../../static/icon/sigin.png" alt="">
+            <span>个人中心</span>
+          </a> -->
+        </div>
+      </div>
+    </div>
 
+    <!-- <div :class="`loading ${slide ? '' :'loading-hide'}`" v-show="loaddivshow">
+      <img class="logo" src="http://img.huashenghaoche.com/tms/test/logo.png" @click="e" alt="">
+    </div> -->
+  </div>
+</template>
+<script>
+import {btns} from "./data"
+export default {
+  name:'index',
+  data() {
+    return {
+      marqueeList: [],
+      lang: 'cn',
+      localInfo: {
+        temperatureCurr: '',
+        date: '',
+        week: {
+          cn: '',
+          en: ''
+        }
+      },
+      hotline: {
+        cn:'24小时热线',
+        en:'hotline'
+      },
+      text:'index',
+      btns,
+      slide: true
+    }
+  },
+  methods:{
+    checkLang () {
+      if(this.lang === 'cn'){
+        this.lang = 'en'
+      } else {
+        this.lang = 'cn'
+      }
+    },
+    go(path){
+      this.$router.push({path})
+    },
+    loadingAnimate(){
+      let _this = this;
+    }
+  },
+  mounted(){
+    let _this = this;
+    
+    _this.axios({
+      method: 'get',
+      url: '/modules',
+      baseURL: _this.host.baseUrl
+      //baseURL:'http://10.168.34.43:3008/api'
+    }).then((res)=>{
+      // console.log(res);
+      let data = res.data
+      let getbtns = data.data.modules
+
+      btns.forEach((item,index)=>{
+        //console.log(item)
+        getbtns.forEach((ite,inde)=>{
+          if(item.text.cn === ite.name){
+            item.show = ite.show
+          }
+        })
+      })
+
+      _this.axios({
+        method: 'get',
+        url: '/meetingnotice',
+        baseURL: _this.host.baseUrl
+        //baseURL:'http://10.168.34.43:3008/api'
+      }).then((res)=>{
+        console.log(res)
+        _this.marqueeList = res.data.data
+      })
+
+      _this.localInfo.temperatureCurr = data.w.temperature
+      let now = new Date(data.serverTime);
+      let month = now.getMonth() + 1;
+      let strDate = now.getDate();
+      let weekArr = [
+        {cn: '星期日',en: 'Sunday'},
+        {cn: '星期一',en: 'Monday'},
+        {cn: '星期二',en: 'Tuesday'},
+        {cn: '星期三',en: 'Wednesday'},
+        {cn: '星期四',en: 'Thursday'},
+        {cn: '星期五',en: 'Friday'},
+        {cn: '星期六',en: 'Saturday'},
+      ]
+      let week = weekArr[now.getDay()];
+      _this.localInfo.week = week
+      _this.localInfo.date = `${month}/${strDate}`
+    })
+  }
+}
+</script>
