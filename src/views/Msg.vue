@@ -1,5 +1,6 @@
 <template>
   <div id="msg">
+    <a class="back-btn" @click="$router.back(-1)"></a>
     <img @click="e" class="head" src="../assets/msg.jpg" alt="">
     <p class="model-name">{{modelName}}</p>
     <div class="form">

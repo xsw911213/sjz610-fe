@@ -1,5 +1,6 @@
 <template>
   <section id="article-detial">
+    <a class="back-btn" @click="$router.back(-1)"></a>
     <div v-if="article" class="article">
       <p class="article-title">{{article.title}}</p>
       <div class="article-html" v-html="article.richText"></div>
@@ -42,7 +43,7 @@ export default {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+  padding: 30px 25px;
   box-sizing: border-box;
   // background-color: #fff;
   background-image: url("../assets/index-bg.jpg");
@@ -64,6 +65,16 @@ export default {
     &-html{
       position: relative;
       margin-top: 30px;
+      p{
+        line-height: 1.5;
+        text-align: justify;
+        margin-bottom: 10px;
+      }
+
+      img{
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

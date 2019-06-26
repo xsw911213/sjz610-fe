@@ -1,9 +1,11 @@
 <template>
   <div id="trademeet">
-    <a v-for="i in 4" class="history history1" @click="$router.push({path:'/history',query:{'history':(i-1)}})">
-      <img :src="`../../static/tmimg/index/trademeet${i}.jpg`">
-      <span>第{{i}}界石家庄旅游发展大会（旅游交易会）</span>
-    </a>
+    <a class="back-btn" @click="$router.back(-1)"></a>
+    <!-- http://518img.blu-rayvision.com/wangjielvfa.jpg -->
+    <img src="http://518img.blu-rayvision.com/wangjielvfa.jpg" alt="">
+    <a class="a a1" href="https://w.url.cn/s/AFSWJyT"></a>
+    <a class="a a2" href="https://w.url.cn/s/A2XOWYm"></a>
+    <a class="a a3" href="https://w.url.cn/s/Az6wxUK"></a>
   </div>
 </template>
 
@@ -11,9 +13,11 @@
 export default {
   data (){
     return{
-
     }
-  }
+  },
+  created(){
+    document.querySelector('title').innerText = '往届旅发'
+  },
 }
 </script>
 <style lang="scss">
@@ -21,7 +25,7 @@ export default {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  padding-top: 20px;
+  padding-top: 35px;
   box-sizing: border-box;
   // background-color: #fff;
   background-image: url("../assets/index-bg.jpg");
@@ -29,26 +33,28 @@ export default {
   background-position: top;
   background-repeat: no-repeat;
   background-color: #77c1ff;
-  .history{
-    display: block;
-    position: relative;
+
+  img {
+    position: absolute;
     width: 100%;
-    height: 24vw;
-    margin-top: 15px;
-    background-color: rgba(#fff,.7);
-    img{
-      display: block;
-      position: absolute;
-      height: 20vw;
-      top: 2vw;
-      left: 2vw;
+    top: 0;
+    left: 0;
+  }
+
+  .a{
+    display: block;
+    position: absolute;
+    width: 80vw;
+    left: 10vw;
+    top: 33vw;
+    height: 30vw;
+    // background-color: rgba(0,0,0,.4);
+
+    &.a2{
+      top: 78vw;
     }
-    span{
-      display: block;
-      position: absolute;
-      font-size: 14px;
-      left: 30vw;
-      top: 2vw;
+    &.a3{
+      top: 120vw;
     }
   }
   

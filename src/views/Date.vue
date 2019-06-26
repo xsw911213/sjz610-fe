@@ -1,5 +1,6 @@
 <template>
   <div id="date">
+    <div class="date-rgba"></div>
     <div class="nav-fixed"> 
       <div class="nav">
         <div :class="`nav-btn ${activeNav === 0 ?'active' :''}`" @click="activeNav = 0">
@@ -14,7 +15,7 @@
         </div>
       </div>
     </div>
-    
+    <a class="back-btn" @click="$router.back(-1)"></a>
     <ul class="detail">
       <li v-for="(item,index) in detail[activeNav]" :key="index">
         <p class="time"><span :class="`${item.timeColor}`">{{item.time}}</span></p>
@@ -139,11 +140,18 @@ export default {
   background-repeat: no-repeat;
   background-color: #77c1ff;
 
+  .date-rgba{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#fff,.8);
+  }
+
   .nav-fixed {
-    position: fixed;
+    position: absolute;
     box-sizing: border-box;
     width: 100%;
-    top: 0;
+    top: 10vw;
     left: 0;
     z-index: 10;
     //background-color: rgba(#a7f0f1,.9);
@@ -152,7 +160,7 @@ export default {
     .nav {
       display: flex;
 
-      padding: 2vw;
+      padding: 5vw;
       //margin-top: 45px;
       justify-content: space-evenly;
       // background-color: rgba(#a7f0f1,.9);
@@ -222,7 +230,7 @@ export default {
     position: relative;
     box-sizing: border-box;
     padding: 10px;
-    margin-top: calc(20px + 14vw);
+    margin-top: calc(20px + 40vw);
     // background: -webkit-linear-gradient(#a7f0f1, #ffffff); /* Safari 5.1 - 6.0 */
 
     .abcd-nav{
@@ -252,7 +260,7 @@ export default {
         }
 
         .orange {
-          color: #c7a011;
+          color: #9b6b04;
         }
       }
 

@@ -1,5 +1,6 @@
 <template>
   <div id="history">
+    <a class="back-btn" @click="$router.back(-1)"></a>
     <p class="title">{{textData.title}}</p>
     <div v-for="(item,index) in textData.article" :key="index">
       <p class="text" v-if="item.type === 'text'">{{item.data}}</p>

@@ -1,6 +1,7 @@
 <template>
   <div id="image">
     <img v-if="img" :src="img" alt="">
+    <a class="back-btn" @click="$router.back(-1)"></a>
   </div>
   
 </template>

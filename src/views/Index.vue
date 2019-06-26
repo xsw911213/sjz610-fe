@@ -54,12 +54,14 @@
   }
 
   .index-head{
-    width: 100%;
+    display: block;
+    width: 38vw;
+    margin: 0 auto;
   }
   .local-info{
     position: relative;
     padding: 0 10vw;
-    margin-top: -2vw;
+    margin-top: -10vw;
     p{
       position: relative;
       color: #fff;
@@ -111,7 +113,7 @@
   .modules{
     position: relative;
     text-align:center;
-    margin-top: 3vw;
+    margin-top: 15vw;
     .notice{
       display: block;
       position: relative;
@@ -130,6 +132,10 @@
         top: 0;
         left: 0;
         text-align: center;
+        p{
+          display: inline-block;
+          margin-left: 30px;
+        }
       }
     }
     .hotline{
@@ -251,7 +257,7 @@
   <div id="index">
     <!-- <div :class="`container ${!slide ? 'container-show' :''}`"  > -->
     <div class="container"  >
-      <img class="index-head" src="../assets/index-head.png">
+      <img class="index-head" src="../assets/metting-logo.png">
       <div class="local-info">
         <p @click="checkLang" class="check-lang">
           <a :class="lang ==='cn' ?'selected':''">中</a>
@@ -263,7 +269,7 @@
       </div>
       <div class="modules">
         <a class="notice" @click="$router.push({name:'ArticleList',params:{module:'meetingnotice'}})">
-          <marquee direction="up" scrollamount="2">
+          <marquee v-if="marqueeList.length > 0" direction="left" scrollamount="6">
             <p v-for="(item,index) in marqueeList" :key="index">{{item.title}}</p>
           </marquee>
         </a>
@@ -274,7 +280,7 @@
             <span>{{item.text[lang]}}</span>
           </a>
         </div>
-        <a class="hotline">{{hotline[lang]}}：88888888</a>
+        <!-- <a class="hotline">{{hotline[lang]}}：88888888</a> -->
         <div class="bottom-btns">
           <!-- <a>
             <img src="../../static/icon/b1.png" alt="">
@@ -321,6 +327,9 @@ export default {
       btns,
       slide: true
     }
+  },
+  created(){
+    document.querySelector('title').innerText = '第四届石家庄市旅游产业发展大会'
   },
   methods:{
     checkLang () {

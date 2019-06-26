@@ -35,6 +35,8 @@ const ArticleDetial = resolve => require(['../views/ArticleDetial'], resolve);
 
 const Image = resolve => require(['../views/Image'], resolve);
 
+const Image4 = resolve => require(['../views/Image4'], resolve);
+
 const MeiTuan = resolve => require(['../views/MeiTuan'], resolve);
 
 
@@ -42,7 +44,7 @@ const MeiTuan = resolve => require(['../views/MeiTuan'], resolve);
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  // mode:'history',
   routes: [
     {
       path: '/',
@@ -118,6 +120,11 @@ export default new Router({
       path: '/image/:module',
       name: 'Image',
       component: Image
+    },
+    {
+      path: '/image4',
+      name: 'Image4',
+      component: Image4
     },
     {
       path: '/articleList/:module',

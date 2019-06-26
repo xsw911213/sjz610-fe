@@ -96,6 +96,22 @@ html,body{
   /* margin-top: 60px; */
 }
 
+.back-btn{
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  top: 15px;
+  left: 15px;
+  background-image: url("./assets/back-arrow.png");
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 13px;
+}
+
 .slide-fade{
   position: absolute;left:0;right: 0;
 }
