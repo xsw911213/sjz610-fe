@@ -5,7 +5,7 @@ export let btns = [
       cn:'会议介绍',
       en:'Introduction'
     },
-    img:'../../static/icon/1.png',
+    img:'../../static/icon/icon_hy_01.png',
     show:true,
     path:'/image/meetingintroduce'
   },
@@ -15,7 +15,7 @@ export let btns = [
       cn:'观摩服务',
       en:'Observation'
     },
-    img:'../../static/icon/2.png',
+    img:'../../static/icon/icon_hy_02.png',
     show:true,
     path:'/image4'
   },
@@ -25,7 +25,7 @@ export let btns = [
       cn:'活动日程',
       en:'Agenda'
     },
-    img:'../../static/icon/3.png',
+    img:'../../static/icon/icon_hy_03.png',
     show:true,
     path:'/date'
   },
@@ -35,7 +35,7 @@ export let btns = [
       cn:'新闻报道',
       en:'News'
     },
-    img:'../../static/icon/4.png',
+    img:'../../static/icon/icon_hy_04.png',
     show:true,
     path:'/articleList/news'
   },
@@ -45,7 +45,7 @@ export let btns = [
       cn:'直播间',
       en:'Live'
     },
-    img:'../../static/icon/5.png',
+    img:'../../static/icon/icon_hy_05.png',
     show:true,
     path:'/living'
   },
@@ -55,7 +55,7 @@ export let btns = [
       cn:'互动留言',
       en:'Interaction'
     },
-    img:'../../static/icon/6.png',
+    img:'../../static/icon/icon_hy_06.png',
     show:true,
     path:'/msg'
   },
@@ -65,7 +65,7 @@ export let btns = [
       cn:'一键导航',
       en:'Guide'
     },
-    img:'../../static/icon/7.png',
+    img:'../../static/icon/icon_hy_07.png',
     show:true,
     path:'/map'
   },
@@ -75,7 +75,7 @@ export let btns = [
       cn:'往届旅发',
       en:'Past trips'
     },
-    img:'../../static/icon/8.png',
+    img:'../../static/icon/icon_hy_08.png',
     show:true,
     path:'/trademeet'
   },
@@ -85,7 +85,7 @@ export let btns = [
       cn:'吃住行游购娱',
       en:'Leisure time'
     },
-    img:'../../static/icon/b2.png',
+    img:'../../static/icon/icon_hy_09.png',
     show:true,
     path:'/meituan'
   }

@@ -43,13 +43,13 @@ export default {
           {
             time: "9:00",
             timeColor: "orange",
-            title: "石家庄文化旅游商品展销会",
+            title: "石家庄文化旅游产品展销会",
             text: "综合文化活动中心一楼大厅"
           },
           {
             time: "9:30",
             timeColor: "orange",
-            title: "石家庄旅游招商项目发布暨签约仪式",
+            title: "石家庄市文化旅游招商项目发布暨签约仪式",
             text: "综合文化活动中心"
           },
           {

@@ -46,22 +46,22 @@
     width: 100%;
     height: 100%;
     top: 0;
-    background-image: url("../assets/index-bg.jpg");
+    // background-image: url("../assets/index-bg.jpg");
     background-size: 100% auto;
     background-position: top;
     background-repeat: no-repeat;
-    background-color: #7AC0F9;
+    // background-color: #7AC0F9;
   }
 
   .index-head{
     display: block;
-    width: 38vw;
+    width: 100%;
     margin: 0 auto;
   }
   .local-info{
     position: relative;
     padding: 0 10vw;
-    margin-top: -10vw;
+    margin-top: -40vw;
     p{
       position: relative;
       color: #fff;
@@ -100,12 +100,12 @@
 
     .date{
       width: 60px;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .weekday{
       width: 60px;
-      font-size: 19px;
+      font-size: 16px;
       height: 20px;
     }
   }
@@ -113,17 +113,17 @@
   .modules{
     position: relative;
     text-align:center;
-    margin-top: 15vw;
+    margin-top: 20vw;
     .notice{
       display: block;
       position: relative;
       width: 77vw;
       height: 9vw;
       line-height: 9vw;
-      color: #fff;
+      color: #333;
       margin: 0 auto;
       border-radius: 4.5vw;
-      background-color: rgba(#2a94f1,.7);
+      background-color: #e4e1e1;
 
       marquee{
         position: absolute;
@@ -147,7 +147,7 @@
       color: #fff;
       margin: 6vw auto 0;
       border-radius: 8px;
-      background-color: rgba(#2a94f1,.7);
+      background-color: #e4e1e1;
     }
   }
 
@@ -167,21 +167,21 @@
       margin-top: 3vw;
       margin-left: 7.5vw;
       border-radius: 8px;
-      background-color: rgba(#2a94f1,.7);
+      background-color: #e4e1e1;
       &:nth-child(3n - 2){
         margin-left: 0;
       }
 
       img{
         margin-top: 3px;
-        width: 12vw;
-        height: 12vw;
+        // width: 8vw;
+        height: 10vw;
       }
       span{
         display: block;
         // margin-top: 5px;
         font-size: 14px;
-        color: #fff;
+        color: #333;
         height: 14px;
       }
     }
@@ -257,7 +257,7 @@
   <div id="index">
     <!-- <div :class="`container ${!slide ? 'container-show' :''}`"  > -->
     <div class="container"  >
-      <img class="index-head" src="../assets/metting-logo.png">
+      <img class="index-head" src="../assets/wbanner.png">
       <div class="local-info">
         <p @click="checkLang" class="check-lang">
           <a :class="lang ==='cn' ?'selected':''">中</a>

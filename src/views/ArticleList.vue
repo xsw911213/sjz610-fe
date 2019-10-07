@@ -2,7 +2,7 @@
   <section id="article-list">
     <div v-if="$route.params.module === 'news'" class="article-list-rgba"></div>
     <a class="back-btn" @click="$router.back(-1)"></a>
-    <img class="sub-head" src="../assets/subtitle.png">
+    <!-- <img class="sub-head" src="../assets/subtitle.png"> -->
     <div v-if="$route.params.module === 'news'" class="news-center">
       <p class="news-center-title">新闻中心</p>
       <div class="swiper-container">
@@ -170,6 +170,7 @@ export default {
 
   .news-center{
     position: relative;
+    margin-top: 10vw;
 
     &-title{
       position: relative;

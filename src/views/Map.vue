@@ -1,11 +1,14 @@
 <template>
-  <div id="map">
-    <div id="rmap">
-    </div>
+  <div id="diymap">
+    <iframe id="rmap" :src="iframeSrc"></iframe>
     <a class="back-btn" @click="$router.back(-1)"></a>
+    <!-- <div class="select-map">
+      <a @click="checkMap('qq')" :class="maptype === 'qq' ?'f':''">腾讯地图</a>
+      <a @click="checkMap('bd')" :class="maptype === 'bd' ?'f':''">百度地图</a>
+    </div> -->
     <a class="showotherplace" @click="addressListShow = true">所有会场地址</a>
     <div class="address-list" @click.self="addressListShow = false"  v-show="addressListShow">
-      <a class="address-item" v-for="(item,index) in addressList" :key="index" @click="changeMap(item)">
+      <a class="address-item" v-for="(item,index) in addressList" :key="index" @click="changeMap(item,index)">
         <div class="address-item-img">
           <img :src="item.img" alt="">
         </div>
@@ -25,8 +28,47 @@
     name:'map',
     data() {
       return {
+        maptype:'qq',
         addressListShow:false,
-        point:{
+        qqpoint:{
+          // 腾讯
+          // 中山宾馆
+          zsbg:{
+            lan:114.388810,
+            lat:38.308870
+          },
+          // 尚客优快捷酒店
+          sky:{
+            lan:114.369051,
+            lat:38.315705
+          },
+          // 驿家365
+          yj365:{
+            lan:114.377840,
+            lat:38.316560
+          },
+          // 华洋宾馆
+          hybg:{
+            lan:114.316011,
+            lat: 38.249432
+          },
+          // 悦城大酒店
+          ycdjd:{
+            lan:114.377785,
+            lat:38.300007
+          },
+          // 综合文化活动中心
+          zhwnhdzx:{
+            lan:114.371840,
+            lat: 38.303090
+          },
+          // 医学高等专科学校
+          yxgdzkxx:{
+            lan: 114.418184,
+            lat: 38.261751
+          }
+        },
+        bdpoint:{
           // 百度
           // 中山宾馆
           zsbg:{
@@ -91,7 +133,7 @@
           },
           {
             name:'悦城大酒店',
-            address:'灵寿县城东街与南环201交口北行200米',
+            address:'河北省石家庄市灵寿县灵寿镇第一中学北(城东街东)',
             location:'ycdjd',
             img:'http://518img.blu-rayvision.com/%E6%82%A6%E5%9F%8E%E5%A4%A7%E9%85%92%E5%BA%97-%283%29.jpg'
           },
@@ -103,132 +145,38 @@
           },
           {
             name:'医学高等专科学校',
-            address:'市灵寿县同下村同新路1号',
+            address:'灵寿县同下村同新路1号',
             location:'yxgdzkxx',
             img:'http://518img.blu-rayvision.com/%E5%8C%BB%E7%A7%91%E9%AB%98%E7%AD%89%E4%B8%93%E7%A7%91%E5%AD%A6%E6%A0%A1.JPEG'
           }
         ],
-        selectedPoint:{},
-        userLocation:{
-          lng:'',
-          lat:''
-        }
+        iframeSrc:'',
+        addressIndex:0
       };
     },
     methods: {
-      initBaiDuMap(point){
-        let _this = this;
-        _this.selectedPoint = point;
-        //114.60936,38.026544
-        // var map = new BMap.Map("map");          // 创建地图实例  
-        // var point = new BMap.Point(114.60936,38.026544);  // 创建点坐标  
-        // map.centerAndZoom(point, 16);                 // 初始化地图，设置中心点坐标和地图级别  
-        // var marker = new BMap.Marker(point);        // 创建标注    
-        // map.addOverlay(marker);                     // 将标注添加到地图中 
-
-        // 坐标拾取系统  http://api.map.baidu.com/lbsapi/getpoint/index.html
-
-        let eposi = new BMap.Point(point.lan,point.lat);
-
-        if(this.userLocation.lng && this.userLocation.lat){
-          var map = new BMap.Map("rmap");
-          map.centerAndZoom(eposi,12);
-
-          var driving = new BMap.DrivingRoute(map, {
-            renderOptions: {
-              map: map, 
-              autoViewport: true
-            }
-          });
-
-          driving.search(new BMap.Point(_this.userLocation.lng,_this.userLocation.lat), eposi);
-
-          _this.addressListShow = false;
-        }else{
-          var geolocation = new BMap.Geolocation();
-          geolocation.enableSDKLocation();
-          geolocation.getCurrentPosition(function(r){
-            if(this.getStatus() == BMAP_STATUS_SUCCESS){
-              // alert('您的位置：'+r.point.lng+','+r.point.lat);
-              var map = new BMap.Map("rmap");
-              map.centerAndZoom(eposi,12);
-
-              var driving = new BMap.DrivingRoute(map, {
-                renderOptions: {
-                  map: map, 
-                  autoViewport: true
-                }
-              });
-              _this.userLocation.lng = r.point.lng
-              _this.userLocation.lat = r.point.lat
-
-              driving.search(new BMap.Point(r.point.lng,r.point.lat), eposi);
-
-              _this.addressListShow = false;
-            }
-            else {
-              alert('failed'+this.getStatus());
-            }        
-          });
-        }
-
-        
+      checkMap(mapType){
+        this.maptype = mapType
+        this.changeMap(this.addressList[this.addressIndex],this.addressIndex)
       },
-      initQQMap(point){
-        let _this = this;
-
-        let geolocation = new qq.maps.Geolocation("GTVBZ-57D3X-KM54N-7M4J5-VOFQ7-64FTJ", "qqmap");
-
-        // 目标位置
-        let epoi = new qq.maps.LatLng(point.lat,point.lng);
-        
-        geolocation.getLocation( ( e =>{
-          console.log(e);
-          //alert(JSON.stringify(e))
-          // 当前位置
-          let spoi = {
-            lat:e.lat,
-            lng:e.lng
-          }
-
-          var map = new qq.maps.Map(document.getElementById("rmap"), {
-            center: epoi,      // 地图的中心地理坐标。
-            zoom:12           
-          })
-        }) )
-
-        function init() {
-            //定义map变量 调用 qq.maps.Map() 构造函数   获取地图显示容器
-            console.log(qq)
-            var map = new qq.maps.Map(document.getElementById("rmap"), {
-                center: new qq.maps.LatLng(39.916527,116.397128),      // 地图的中心地理坐标。
-            });
-        }
-
-        //调用初始化函数地图
-        init();
+      changeMap(address,index){
+        console.log(address)
+        this.addressIndex = index
+        let location = this[`${this.maptype}point`][address.location]
+        let src = `https://apis.map.qq.com/uri/v1/marker?marker=coord:${location.lat},${location.lan};title:${address.name};addr:${address.address}&referer=4JPBZ-5NMC3-SHN32-3J2TM-4RPLQ-R3FP4`
+        this.iframeSrc = src
+        this.addressListShow = false
       },
-      changeMap(prop){
-        this.initBaiDuMap(this.point[prop.location]);
-        //this.initQQMap(this.point[prop]);
-      },
-      openBaiduMapApp(){
-        // lat,lng
-        let _this = this
-        console.log(`baidumap://map/direction?mode=driving&destination=${_this.selectedPoint.lat},${_this.selectedPoint.lan}`)
-        window.location.href = `baidumap://map/direction?mode=driving&destination=${_this.selectedPoint.lat},${_this.selectedPoint.lan}`
-      }
     },
     mounted() {
-      this.initBaiDuMap(this.point.zsbg);
-      //this.initQQMap(this.point.xbcq)
-      
+      // this.initBaiDuMap(this.point.zsbg);
+      this.changeMap(this.addressList[this.addressIndex],this.addressIndex)
     }
   };
 </script>
 
 <style lang="scss">
-  #map {
+  #diymap {
     position: absolute;
     width: 100%;
     min-height: 100%;
@@ -239,6 +187,27 @@
       width: 100%;
       min-height: 100%;
       top: 0;
+      border:none;
+    }
+    .select-map{
+      box-sizing: border-box;
+      position: absolute;
+      width: 100px;
+      top: 100px;
+      border-radius: 3px;
+      background-color: rgba(#fff,.8);
+      a{
+        display: block;
+        box-sizing: border-box;
+        width: 100px;
+        padding: 10px;
+        border-radius: 3px;
+        text-align: center;
+        &.f{
+          background-color: rgba(45, 57, 65, 0.8);
+          color: #fff;
+        }
+      }
     }
 
     .open-baidu-map-app{
