@@ -13,7 +13,7 @@
     "axios": "^0.18.0",
     "jsonp": "^0.2.1",
     "marquee-roll-up": "^1.0.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.0.1",
     "swiper": "^4.5.0",
     "vue": "^2.5.2",
